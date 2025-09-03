@@ -1,0 +1,169 @@
+[
+    {
+      "category": "Specialist",
+      "doctors": [
+        {
+          "id": "1",
+          "password":"123456",
+          "name": "Prashant Kumar",
+          "availability": true,
+          "openingtime": "4:00pm",
+          "closingtime": "10:00pm",
+          "category": "Specialist",
+          "waitingpatients": 4,
+          "availabledateslots": [
+            {
+              "date": "2025-01-26",
+              "timeslots": [
+                "4:00pm",
+                "4:30pm",
+                "5:00pm"
+              ]
+            },
+            {
+              "date": "2025-01-27",
+              "timeslots": [
+                "5:00pm",
+                "5:30pm",
+                "6:00pm"
+              ]
+            }
+          ]
+        }
+        
+      ]
+    },
+
+
+    {
+      "category": "General",
+      "doctors": [
+        {
+          "id": "2",
+          "password":"123456",
+          "name": "Dr. Anil Kumar",
+          "availability": true,
+          "openingtime": "8:00am",
+          "closingtime": "4:00pm",
+          "category":"General",
+          "waitingpatients": 5,
+          "availabledateslots": [
+            {
+              "date": "2025-01-26",
+              "timeslots": [
+                "8:00am",
+                "8:30am",
+                "9:00am"
+              ]
+            },
+            {
+              "date": "2025-01-27",
+              "timeslots": [
+                "9:30am",
+                "10:00am",
+                "10:30am"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+
+    {
+      "category": "ENT",
+      "doctors": [
+        {
+          "id": "3",
+          "password":"123456",
+          "name": "Dr. Anil Kumar",
+          "availability": true,
+          "openingtime": "8:00am",
+          "closingtime": "4:00pm",
+          "category":"ENT",
+          "waitingpatients": 5,
+          "availabledateslots": [
+            {
+              "date": "2025-01-26",
+              "timeslots": [
+                "8:00am",
+                "8:30am",
+                "9:00am"
+              ]
+            },
+            {
+              "date": "2025-01-27",
+              "timeslots": [
+                "9:30am",
+                "10:00am",
+                "10:30am"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "4",
+          "password":"123456",
+          "name": "Dr. Anil Kumar",
+          "availability": true,
+          "openingtime": "8:00am",
+          "closingtime": "4:00pm",
+          "category":"ENT",
+          "waitingpatients": 5,
+          "availabledateslots": [
+            {
+              "date": "2025-01-26",
+              "timeslots": [
+                "8:00am",
+                "8:30am",
+                "9:00am"
+              ]
+            },
+            {
+              "date": "2025-01-27",
+              "timeslots": [
+                "9:30am",
+                "10:00am",
+                "10:30am"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    
+    {
+      "category": "Dentist",
+      "doctors": [
+        {
+          "id": "5",
+          "password":"123456",
+          "name": "Dr. Anil Kumar",
+          "availability": true,
+          "openingtime": "8:00am",
+          "closingtime": "4:00pm",
+          "waitingpatients": 5,
+          "category": "Dentist",
+          "availabledateslots": [
+            {
+              "date": "2025-01-26",
+              "timeslots": [
+                "8:00am",
+                "8:30am",
+                "9:00am"
+              ]
+            },
+            {
+              "date": "2025-01-27",
+              "timeslots": [
+                "9:30am",
+                "10:00am",
+                "10:30am"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+    
+  ]
+  
