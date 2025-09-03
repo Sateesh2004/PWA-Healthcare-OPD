@@ -19,13 +19,13 @@ const CheckIn5 = () => {
         <div className="flex text-white mh:mt-6">
           <img
             className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="./assets/images/vector.webp"
+            src="/images/vector.webp"
           />
           <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
         <img
           className={"w-[14vh] mr-7 mh:w-[13vh] mh:mt-4"}
-          src="./assets/images/logo.webp"
+          src="/images/logo.webp"
         />
       </div>
 
@@ -73,7 +73,7 @@ const CheckIn5 = () => {
           Collect Your Token And Patient card from bellow
         </div>
         <div className="w-24 h-16 mr-12 ml-8 mh:w-56 mh:h-40 mh:mt-6 mh:pb-4 mh:ml-16 mh:mr-40">
-          <img src="./assets/images/receipt.webp" />
+          <img src="/images/receipt.webp" />
         </div>
         <div className="absolute top-2 right-2 text-gray-400 text-lg mh:top-6 mh:right-6 mh:text-6xl">
           <RxCross2 />
@@ -102,7 +102,7 @@ const CheckIn5 = () => {
           Follow the map for your waiting area
         </div>
         <div className="mt-3 mh:mt-10 mh:mb-2">
-          <img className="w-full" src="./assets/images/map.webp" />
+          <img className="w-full" src="/images/map.webp" />
         </div>
       </div>
 

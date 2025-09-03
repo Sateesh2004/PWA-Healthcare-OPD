@@ -37,7 +37,7 @@ const Screen1 = () => {
           </div>
           <img
             className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-            src="./assets/images/logo.webp"
+            src="/images/logo.webp"
           />
         </div>
 

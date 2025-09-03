@@ -59,7 +59,7 @@ module.exports = {
   			}
   		},
   		backgroundImage: {
-  			hero: "url('./assets/images/background.webp')"
+  			hero: "url('/images/background.webp')"
   		},
   		screens: {
   			mh: {

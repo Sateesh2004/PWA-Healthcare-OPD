@@ -60,13 +60,13 @@ const Walk6 = () => {
           <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
             <img
               className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-              src="./assets/images/vector.webp"
+              src="/images/vector.webp"
             />
             <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
             className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-            src="./assets/images/logo.webp"
+            src="/images/logo.webp"
           />
         </div>
         <div className="px-8" >

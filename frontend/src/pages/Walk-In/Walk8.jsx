@@ -40,13 +40,13 @@ const Walk8 = () => {
        <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white mh:mt-6">
           <img
             className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="./assets/images/vector.webp"
+            src="/images/vector.webp"
           />
           <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
         <img
           className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-          src="./assets/images/logo.webp"
+          src="/images/logo.webp"
         />
       </div>
       {/* <div className="mh:px-16 px-6">
@@ -121,7 +121,7 @@ const Walk8 = () => {
             Ammount to PAY: 499
           </div>
           <div className="flex justify-center">
-            <img src="./assets/images/scanner.webp" className="h-[36vh] mt-2" />
+            <img src="/images/scanner.webp" className="h-[36vh] mt-2" />
           </div>
           <div className="font-dmsans text-center text-[14px] font-semibold text-gray-300 py-3 mh:text-[30px] mh:py-5">
             Cancel

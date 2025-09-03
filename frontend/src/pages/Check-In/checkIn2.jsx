@@ -118,7 +118,7 @@ const CheckIn2 = () => {
         />
         <img
           className={"w-[14vh] mr-4 mh:w-[15vh] mh:mt-4"}
-          src="./assets/images/logo.webp"
+          src="/images/logo.webp"
         />
       </div>
       <div className="text-white font-semibold -ml-3 mh:ml-6">

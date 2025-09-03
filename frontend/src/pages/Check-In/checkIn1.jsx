@@ -196,7 +196,7 @@ async function  onSubmit(values) {
         /> */}
         <img
           className={"w-[14vh] mr-4 mh:w-[15vh] mh:mt-4"}
-          src="./assets/images/logo.webp"
+          src="/images/logo.webp"
         />
       </div>
       <div className="text-white font-semibold -ml-3 mh:ml-6">
@@ -343,7 +343,7 @@ async function  onSubmit(values) {
             Scan QR
             <img
               className="w-6 h-6 ml-1 p-1 mh:w-16 mh:h-16 mh:ml-5"
-              src="./assets/images/qr-code.webp"
+              src="/images/qr-code.webp"
             />
           </div>
         </div>
@@ -364,7 +364,7 @@ async function  onSubmit(values) {
           </div>
         </div>
         <div className={"flex mt-[6vh] mr-9 mh:mt-[6vh] mh:mr-24"}>
-          <img className="w-[12vh]" src="./assets/images/footer.webp" />
+          <img className="w-[12vh]" src="/images/footer.webp" />
         </div>
       </div> */}
       <FooterS/>
