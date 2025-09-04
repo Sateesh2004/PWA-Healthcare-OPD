@@ -2,7 +2,7 @@ import React from 'react'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'  
 import "@fontsource/dm-sans";
 import HomePage from './pages/HomePage';
-import Login from './pages/login';
+import Login from './pages/Login';
 
 
 
