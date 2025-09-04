@@ -1,6 +1,7 @@
 import {save} from '../utils/save.js';
 import appointments from '../models/Appointment.json' with { type: 'json' };
 export const createAppointment = async (apoointment) => {
+  console.log(apoointment)
     const filename = "Appointment.json";
     save(apoointment,filename)
     

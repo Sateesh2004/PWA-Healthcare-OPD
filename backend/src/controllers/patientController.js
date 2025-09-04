@@ -37,7 +37,7 @@ export const register = async (req, res) => {
            
           }
         }
-          createAppointment({patientName: patientName,patientPhone: patientPhone,patientId, doctorid:doctorid,doctorname:doctorInfo.name,doctorcategory:doctorInfo.category,time:time,date:date,paymentstatus:"Unpaid",appid:uuid})
+          createAppointment({patientName: patientName,patientPhone: patientPhone,patientId, doctorid:doctorid,doctorname:doctorInfo.name,doctorcategory:doctorInfo.category,time:time,date:date,paymentstatus:"Unpaid",appid:uuid,status:"pending",created_at:new Date().toISOString()})
          return res.send({ message: 'Created',patientPhone:patientPhone });
           
         
@@ -78,7 +78,7 @@ export const register = async (req, res) => {
     }
 
 
-       createAppointment({patientName: patientName,patientPhone: patientPhone,patientId, doctorid:doctorid,doctorname:doctorInfo.name,doctorcategory:doctorInfo.category,time:time,date:date,paymentstatus:"Unpaid",appid:uuid})
+       createAppointment({patientName: patientName,patientPhone: patientPhone,patientId, doctorid:doctorid,doctorname:doctorInfo.name,doctorcategory:doctorInfo.category,time:time,date:date,paymentstatus:"Unpaid",appid:uuid,status:"pending",created_at:new Date().toISOString()})
        save({id:uuid,patientName: patientName,patientId, patientPhone: patientPhone, gender: gender, dob: dob, address: address},filename,req,res)
        res.json({ message: 'Data saved successfully' });}
 

@@ -121,20 +121,21 @@ const Edit = () => {
     </div>
       </div>}
       
-      <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white mh:mt-6">
+        <div className={"flex   justify-between  pt-4 mh:mx-16"}>
+          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
             <img
               className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-              src="./assets/images/vector.webp"
+              src="/images/vector.svg"
             />
             <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
             className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-            src="./assets/images/logo.webp"
+            src="/images/logo.png"
           />
         </div>
-        <div className=" mx-16   ">
+        <div className='px-8' >
+        <div className="  ">
           <h1 className="text-[22px] mh:text-[60px] font-dmsans font-semibold text-white">
            {category}
           </h1>
@@ -149,7 +150,7 @@ const Edit = () => {
 
     <form
       onSubmit={handleSubmit}
-      className="bg-white  mh:p-8 mh:rounded-[16px] mh:mt-10 rounded-md p-4 mx-16 "
+      className="bg-white mt-10 mh:p-8 mh:rounded-[16px] mh:mt-10 rounded-md p-4"
     >
       <div>
         <h1 className="mh:text-[52px] text-[20px] font-[600] ">
@@ -192,7 +193,7 @@ const Edit = () => {
             onChange={handleChange} type="tel" placeholder="Type your Number"
             className="mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black "
           />
-          {errors.patientPhone && <span className="text-red-500 text-3xl font-bold">{errors.patientPhone}</span>}
+          {errors.patientPhone && <span className="text-red-500 text-sm font-bold">{errors.patientPhone}</span>}
         </div>
 
         <div className="flex mh:gap-5 mh:my-5  gap-1 mt-1.5">
@@ -239,7 +240,7 @@ const Edit = () => {
               Date of Birth
             </label>
             <input name="dob" value={formData.dob}
-              onChange={handleChange} type="date"  className='mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
+              onChange={handleChange} type="date"  className='mh:px-6 h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
               {errors.dob && <span className="text-red-500 text-3xl font-bold">{errors.dob}</span>}
           </div>
         </div>
@@ -260,6 +261,7 @@ className='mh:px-8 mh:py-2 mh:text-[42px] mh:mt-2 mh:rounded-[10px] border-[#232
       </Button>
     </form>
    <FooterS back={true}/>
+   </div>
   </div>
   )
 }

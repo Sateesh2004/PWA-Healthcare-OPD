@@ -17,19 +17,19 @@ const CheckIn4 = () => {
   const dayName = formatDate.toLocaleString('en-US', { weekday: 'short' }); // Jan
   return (
     <div className="bg-hero bg-cover bg-center h-screen">
-      <div className="flex justify-between pl-8 pt-4 mh:mr-4 mh:ml-14">
-        <div className="flex text-white mh:mt-6">
+       <div className={"flex   justify-between  pt-4 mh:mx-16"}>
+          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+            <img
+              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              src="/images/vector.svg"
+            />
+            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+          </div>
           <img
-            className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="/images/vector.webp"
+            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            src="/images/logo.png"
           />
-          <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
-        <img
-          className="w-[14vh] mr-7 mh:w-[13vh] mh:mt-4"
-          src="/images/logo.webp"
-        />
-      </div>
 
       <div className="text-white font-semibold mt-5 mh:ml-6 text-xl pl-8 mh:pl-14 mh:text-5xl mh:mt-16">
         {appointment.patientName}

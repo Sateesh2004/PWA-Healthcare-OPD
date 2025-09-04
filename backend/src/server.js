@@ -14,6 +14,7 @@ app.use(cors());
 app.use('/languages',languagesRoutes)
 app.use('/doctors',doctorsRoutes)
 app.use('/patient',patientRoutes)
+app.use('/appointment',appointmentRoutes)
 app.listen(3000, () => {
   // connectDB()
   console.log('Server is running on port http://localhost:3000');

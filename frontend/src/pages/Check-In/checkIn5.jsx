@@ -2,6 +2,7 @@ import React from "react";
 import { RxCross2 } from "react-icons/rx";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import FooterS from "../../components/Footer/FooterS";
 const CheckIn5 = () => {
   const navigate = useNavigate()
   const location = useLocation();
@@ -15,19 +16,19 @@ const CheckIn5 = () => {
   const dayName = formatDate.toLocaleString('en-US', { weekday: 'short' }); // Jan
   return (
     <div className="h-screen bg-hero bg-cover bg-center ">
-      <div className="flex justify-between pl-8 pt-4 mh:mr-4 mh:ml-14">
-        <div className="flex text-white mh:mt-6">
+        <div className={"flex   justify-between  pt-4 mh:mx-16"}>
+          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+            <img
+              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              src="/images/vector.svg"
+            />
+            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+          </div>
           <img
-            className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="/images/vector.webp"
+            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            src="/images/logo.png"
           />
-          <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
-        <img
-          className={"w-[14vh] mr-7 mh:w-[13vh] mh:mt-4"}
-          src="/images/logo.webp"
-        />
-      </div>
 
       <div className="flex-col bg-white relative rounded-md ml-8 mr-7 mt-2 flex h-fit mh:ml-20 mh:mr-20 mh:rounded-2xl mh:mt-8">
         <div className="flex">
@@ -73,7 +74,7 @@ const CheckIn5 = () => {
           Collect Your Token And Patient card from bellow
         </div>
         <div className="w-24 h-16 mr-12 ml-8 mh:w-56 mh:h-40 mh:mt-6 mh:pb-4 mh:ml-16 mh:mr-40">
-          <img src="/images/receipt.webp" />
+          <img src="/images/receipt.png" />
         </div>
         <div className="absolute top-2 right-2 text-gray-400 text-lg mh:top-6 mh:right-6 mh:text-6xl">
           <RxCross2 />
@@ -102,22 +103,11 @@ const CheckIn5 = () => {
           Follow the map for your waiting area
         </div>
         <div className="mt-3 mh:mt-10 mh:mb-2">
-          <img className="w-full" src="/images/map.webp" />
+          <img className="w-full" src="/images/map.png" />
         </div>
       </div>
 
-      <div  className="flex justify-between px-8">
-        <div className="flex mh:mt-[2vh]">
-          <div onClick={()=>{navigate("/")}} className="flex justify-center items-center p-2  text-white rounded font-semibold text-sm w-[14vh] h-[5vh] mt-[2vh] bg-customBlue border border-customGray mh:text-4xl mh:rounded-xl mh:ml-12 mh:h-[6vh] ">
-            Back to start
-          </div>
-        </div>
-        <div className="flex justify-end items-end">
-          <div onClick={()=>{navigate("/checkin6")}} className="flex justify-center items-center p-2  text-white rounded font-semibold text-sm w-[14vh] h-[5vh] mt-[2vh] bg-customBlue border border-customGray mh:text-4xl mh:rounded-xl mh:mr-11 mh:h-[6vh] ">
-            Next
-          </div>
-        </div>
-      </div>
+      <FooterS back={true}/>
     </div>
   );
 };

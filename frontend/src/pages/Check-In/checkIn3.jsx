@@ -30,9 +30,7 @@ const CheckIn3 = () => {
       const response =await  fetch(`http://localhost:3000/appointment/appointments/${id}`)
       const data = await response.json()
       setAppointments(data)
-      // setDate(data.date)
-      // data.reverse()
-      // console.log(data)
+      console.log(data)
       
       
       const date = data[0].date
@@ -47,25 +45,23 @@ const CheckIn3 = () => {
   },[])
   return (
     <div className="bg-hero bg-cover bg-center h-screen">
-      <div className={"flex justify-between pl-8 pt-4 mh:mr-4 mh:ml-14"}>
-        <div className="flex text-white mh:mt-6">
+        <div className={"flex   justify-between  pt-4 mh:mx-16"}>
+          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+            <img
+              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              src="/images/vector.svg"
+            />
+            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+          </div>
           <img
-            className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="/images/vector.webp"
+            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            src="/images/logo.png"
           />
-          <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
-        <img
-          className={"w-[14vh] mr-7 mh:w-[13vh] mh:mt-4"}
-          src="/images/logo.webp"
-        />
-      </div>
 
-      <div className="text-white font-semibold mt-5 mh:ml-6 text-xl pl-8 mh:pl-14 mh:text-6xl mh:mt-16">
-        {/* Hello {appointments[0].patientName} */}
-      </div>
+     
 
-      <div className="ml-8 mr-7 mh:ml-20 mh:mr-[5vh] mh:mt-8">
+      <div className="ml-8 mt-4 mr-8 mh:ml-20 mh:mr-[5vh] mh:mt-8">
         <Carousel className="mh:rounded-3xl" />
       </div>
 
@@ -76,8 +72,8 @@ const CheckIn3 = () => {
         Today
       </div>
 
-      <div className="bg-white rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
-        <div className="flex justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
+      <div className="bg-white  rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
+        <div className="flex  justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
           <div className="flex justify-center items-center bg-customBlue rounded-md w-[80px] h-[80px] mh:w-[180px] mh:h-[180px]  mh:rounded-2xl">
             <div className="flex flex-col justify-center items-center">
               <div className="font-semibold text-white text-[16px] mh:text-[32px]">
@@ -88,7 +84,7 @@ const CheckIn3 = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="w-full pr-2" >
           <div className="flex flex-col mt-2 items-start mh:rounded-2xl mh:ml-2 mh:mt-6">
             <div className="text-[10px] font-semibold mh:text-[22px]">
                {appointments[0].time}
@@ -99,7 +95,7 @@ const CheckIn3 = () => {
             <div className="text-[9px] -mt-0.5 mh:text-[22px] mh:-mt-2">
                {appointments[0].doctorname}
             </div>
-            <div className="w-72 mr-2 -mb-8 mt-3 mh:w-[34vh] mh:mt-7">
+            <div className="w-full mr-2 -mb-8 mt-3  mh:mt-7">
               <div onClick={() => navigate("/checkIn4",{state:{appointment:appointments[0]}})} className="flex justify-center items-center p-0.5 rounded-sm text-[11px] bg-customBlue text-white mh:text-[22px] mh:h-11 mh:rounded-lg">
                 Appointment Details
               </div>
@@ -112,10 +108,10 @@ const CheckIn3 = () => {
         Next week
       </div>
 
-
+<div className="overflow-y-auto max-h-[350px]" >
 {appointments.slice(1).map((appointment) => (
-  <div className="bg-white rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
-  <div className="flex justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
+  <div className="bg-white   rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
+  <div className="flex  justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
     <div className="flex justify-center items-center bg-customBlue rounded-md w-[80px] h-[80px] mh:w-[180px] mh:h-[180px]  mh:rounded-2xl">
       <div className="flex flex-col justify-center items-center">
         <div className="font-semibold text-white text-[16px] mh:text-[32px]">
@@ -128,7 +124,7 @@ const CheckIn3 = () => {
       </div>
     </div>
   </div>
-  <div>
+  <div className="w-full" >
     <div className="flex flex-col mt-2 items-start mh:rounded-2xl mh:ml-2 mh:mt-6">
       <div className="text-[10px] font-semibold mh:text-[22px]">
          {appointment.time}
@@ -139,7 +135,7 @@ const CheckIn3 = () => {
       <div className="text-[9px] -mt-0.5 mh:text-[22px] mh:-mt-2">
          {appointment.doctorname}
       </div>
-      <div className="w-72 mr-2 -mb-8 mt-3 mh:w-[34vh] mh:mt-7">
+      <div className="mr-2 w-full pr-2 -mb-8 mt-3 mh:w-[34vh] mh:mt-7">
         <div onClick={() => navigate("/checkIn4",{state:{appointment:appointment}})} className="flex justify-center items-center p-0.5 rounded-sm text-[11px] bg-customBlue text-white mh:text-[22px] mh:h-11 mh:rounded-lg">
           Appointment Details
         </div>
@@ -148,86 +144,8 @@ const CheckIn3 = () => {
   </div>
 </div>
 ))}
-      
-
-      {/* <div className="bg-white rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
-        <div className="flex justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
-          <div className="flex justify-center items-center bg-customBlue rounded-md w-[80px] h-[80px] mh:w-[180px] mh:h-[180px]  mh:rounded-2xl">
-            <div className="flex flex-col justify-center items-center">
-              <div className="font-semibold text-white text-[16px] mh:text-[32px]">
-                8
-              </div>
-              <div className="text-white text-[14px] mh:text-[30px]">Tue</div>
-              <div className="text-white text-[14px] mh:text-[30px]">July</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex flex-col mt-2 items-start mh:rounded-2xl mh:ml-2 mh:mt-6">
-            <div className="text-[10px] font-semibold mh:text-[22px]">
-              10.30pm
-            </div>
-            <div className="text-[14px] font-bold mh:text-[30px] w-full">
-              General OPD
-            </div>
-            <div className="text-[9px] -mt-0.5 mh:text-[22px] mh:-mt-2">
-              DR. Malhar Santx
-            </div>
-            <div className="w-72 mr-2 -mb-8 mt-3 mh:w-[34vh] mh:mt-7">
-              <div className="flex justify-center items-center p-0.5 rounded-sm text-[11px] bg-customBlue text-white mh:text-[22px] mh:h-11 mh:rounded-lg">
-                Appointment Details
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl mh:mt-4">
-        <div className="flex justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
-          <div className="flex justify-center items-center bg-customBlue rounded-md w-[80px] h-[80px] mh:w-[180px] mh:h-[180px]  mh:rounded-2xl">
-            <div className="flex flex-col justify-center items-center">
-              <div className="font-semibold text-white text-[16px] mh:text-[32px]">
-                8
-              </div>
-              <div className="text-white text-[14px] mh:text-[30px]">Tue</div>
-              <div className="text-white text-[14px] mh:text-[30px]">July</div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex flex-col mt-2 items-start mh:rounded-2xl mh:ml-2 mh:mt-6">
-            <div className="text-[10px] font-semibold mh:text-[22px]">
-              10.30pm
-            </div>
-            <div className="text-[14px] font-bold mh:text-[30px] w-full">
-              General OPD
-            </div>
-            <div className="text-[9px] -mt-0.5 mh:text-[22px] mh:-mt-2">
-              DR. Malhar Santx
-            </div>
-            <div className="w-72 mr-2 -mb-8 mt-3 mh:w-[34vh] mh:mt-7">
-              <div className="flex justify-center items-center p-0.5 rounded-sm text-[11px] bg-customBlue text-white mh:text-[22px] mh:h-11 mh:rounded-lg">
-                Appointment Details
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
-      {/* <div className="flex justify-between mh:mt-32 mt-[60px]">
-        <div className="ml-10 mh:ml-24">
-          <div
-            className={
-              "flex justify-center items-center p-2 bg-[#fff] text-white rounded font-semibold text-sm w-[14vh] h-[5vh] mt-[3vh] bg-customBlue border border-customGray mh:text-3xl mh:rounded-xl mh:mt-[3vh]"
-            }
-          >
-            Back to start
-          </div>
-        </div>
-        <div className={"flex mt-[6vh] mr-9 mh:mt-[6vh] mh:mr-24"}>
-          <img className="w-[12vh]" src="/images/footer.webp" />
-        </div>
-      </div> */}
+</div>
+    
       <FooterS/>
     </div>
   );

@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import DoctorCardExtended from "../../components/DoctorCardExtended/DoctorCardExtended";
 import { useLocation, useNavigate } from 'react-router-dom';
 import FooterS from "../../components/Footer/FooterS";
+import { Search } from "lucide-react";
 
 const Walk3 = () => {
   const location = useLocation();
@@ -22,13 +23,13 @@ const Walk3 = () => {
           <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
             <img
               className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-              src="/images/vector.webp"
+              src="/images/vector.svg"
             />
             <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
             className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-            src="/images/logo.webp"
+            src="/images/logo.png"
           />
         </div>
         <div className="px-8" >
@@ -43,19 +44,15 @@ const Walk3 = () => {
             />
           </div>
         </div>
-        <div className="mh:mb-3 mh:mr-4 mh:mx-16">
+        <div className="mh:mb-3 mh:mr-4 mt-5 mh:mx-16">
           <h1 className=" text-white text-[14px] font-semibold mh:text-[36px] ">
             Select Doctor
           </h1>
         </div>
       
-        <div className="flex   relative   mh:mx-16  mh:py-4 mh:pb-8 ">
-        <div className="absolute   top-[45%] transform -translate-y-1/2  ">
-          <img
-            src="/images/search.webp"
-            alt="Search"
-            className="mh:w-[26px] mh:h-[26px] ml-5 w-[12px] h-[12px] alt-gray-200"
-          />
+        <div className="flex   relative mt-2  mh:mx-16  mh:py-4 mh:pb-8 ">
+        <div className="absolute left-3 top-[50%] transform -translate-y-1/2  ">
+          <Search  className="w-4 h-4 text-gray-300" />
         </div>
         <input
           type="text"
@@ -64,7 +61,7 @@ const Walk3 = () => {
         />
       </div>
 
-        <div className="relative">
+        <div className="relative mt-6">
           {/* Doctor Cards */}
           <DoctorCardExtended doctorid={doctorid} doctors={doctors} />
           

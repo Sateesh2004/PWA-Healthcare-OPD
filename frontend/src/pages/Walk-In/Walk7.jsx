@@ -16,13 +16,13 @@ const Walk7 = () => {
           <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
             <img
               className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-              src="/images/vector.webp"
+              src="/images/vector.svg"
             />
             <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
             className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-            src="/images/logo.webp"
+            src="/images/logo.png"
           />
         </div>
 
@@ -52,14 +52,14 @@ const Walk7 = () => {
             </div>
             <div>
               <img
-                src="/images/upi.webp"
+                src="/images/upi1.svg"
                 alt=""
                 className="w-[80px] h-[50px]"
               />
             </div>
           </div>
           <div  className="flex mh:rounded-[12px] border border-customGray justify-between items-center  bg-gradient-to-r from-[#084B83] from-40% to-[#16CDE1] mh:px-[43px] mh:py-[30px] px-4 py-2 font-dmsans mt-10 rounded-[4px]">
-            <div className="mh:text-[52px] text-[18px] text-white">
+            <div onClick={()=>{navigate('/walkin8',{state:{appointment,category}});}} className="mh:text-[52px] text-[18px] text-white">
             <h1>Pay in Cash (At Counter)</h1>
               <p className="mh:text-[25.6px] text-[10px] mt-0.5">
               I Dont't have an Appointment
@@ -67,7 +67,7 @@ const Walk7 = () => {
             </div>
             <div>
               <img
-                src="/images/cash.webp"
+                src="/images/cash.svg"
                 alt=""
                 className="w-[80px] h-[50px]"
               />

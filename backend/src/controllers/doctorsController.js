@@ -53,14 +53,23 @@ export const logInDoctor = async (req, res) => {
 };
 
 
-
 export const getDoctorAppointments = async (req, res) => {
   const { id } = req.params;
   console.log("Fetching appointments for doctor ID:", id);
+
   try {
-    const doctorAppointments = appointments.filter(
-      (appt) => appt.doctorid === id
-    );
+    // Get today's date in UTC (YYYY-MM-DD)
+    const today = new Date().toISOString().split("T")[0];
+
+    const doctorAppointments = appointments.filter((appt) => {
+      if (!appt.created_at) return false; // skip if missing
+
+      const parsedDate = new Date(appt.created_at);
+      if (isNaN(parsedDate)) return false; // skip if invalid
+
+      const apptDate = parsedDate.toISOString().split("T")[0];
+      return appt.doctorid === id && apptDate === today;
+    });
 
     return res.status(200).json({
       message: "Appointments fetched successfully",

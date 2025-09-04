@@ -108,12 +108,12 @@ const PatientRegistration = (props) => {
        
 
         <div className="bg-white relative rounded-[50px]  p-10 shadow">
-        <div className="absolute top-5 right-5 cursor-pointer z-[1000]" onClick={() => setPopUp(false)}> <X size={50} /></div>
-        <div className="bg-white relative z-50 mh:text-[52px] text-black  font-[600] mh:p-8 mh:rounded-[16px]  p-4 mx-2">
+        <div className="absolute top-5 right-5 cursor-pointer z-[1000]" onClick={() => setPopUp(false)}> <X size={20} /></div>
+        <div className="bg-white relative z-50 mh:text-[52px] text-black  font-[600] mh:p-8 mh:rounded-[16px] p-2 mx-2">
           Patient Already Exists
         </div>
         <div className="mh:px-10 relative z-50 px-6">
-        <Button  onClick={()=>{navigate("/walkin4a",{state:{doctorid,date,time,category}})}} className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
+        <Button  onClick={()=>{navigate("/walkin4a",{state:{doctorid,date,time,category}})}} className="w-full rounded-[3px] mt-0 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
           Sign In
         </Button>
       </div>
@@ -144,7 +144,7 @@ const PatientRegistration = (props) => {
               onChange={handleChange}  name="patientName" type="text" placeholder="Type your Name"
               className="mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black "
             />
-             {errors.patientName && <span className="text-red-500 text-3xl font-bold">{errors.patientName}</span>}
+             {errors.patientName && <span className="text-red-500 text-sm font-bold">{errors.patientName}</span>}
           </div>
           <div className="flex flex-col mh:gap-1 mt-1.5">
             <label className="mh:text-[29px] text-[12px] mh:font-[600]">
@@ -155,12 +155,12 @@ const PatientRegistration = (props) => {
               onChange={handleChange} type="tel" placeholder="Type your Number"
               className="mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black "
             />
-            {errors.patientPhone && <span className="text-red-500 text-3xl font-bold">{errors.patientPhone}</span>}
+            {errors.patientPhone && <span className="text-red-500 text-sm font-bold">{errors.patientPhone}</span>}
           </div>
 
           <div className="flex mh:gap-5 mh:my-5 gap-1 mt-1.5">
-            {/* Gender Dropdown */}
-            <div className="flex flex-col w-1/2 mh:gap-1">
+            
+            <div className="flex  flex-col w-1/2 mh:gap-1">
               <label
                 htmlFor="gender"
                 className="mh:text-[29px] text-[12px] mh:font-[600]"
@@ -190,11 +190,11 @@ const PatientRegistration = (props) => {
                   Prefer not to say
                 </option>
               </select>
-              {errors.gender && <span className="text-red-500 text-3xl font-bold">{errors.gender}</span>}
+              {errors.gender && <span className="text-red-500 text-sm font-bold">{errors.gender}</span>}
             </div>
 
-            {/* Date of Birth Input */}
-            <div className="flex flex-col w-1/2 mh:gap-1 ">
+           
+            <div className="flex  flex-col w-1/2 mh:gap-1 ">
               <label
                 htmlFor="dob"
                 className="mh:text-[29px] text-[12px] mh:font-[600]"
@@ -202,8 +202,8 @@ const PatientRegistration = (props) => {
                 Date of Birth
               </label>
               <input name="dob" value={formData.dob}
-                onChange={handleChange} type="date"  className='mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
-                {errors.dob && <span className="text-red-500 text-3xl font-bold">{errors.dob}</span>}
+                onChange={handleChange} type="date"  className='mh:px-6 h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
+                {errors.dob && <span className="text-red-500 text-sm font-bold">{errors.dob}</span>}
             </div>
           </div>
           <div className="flex flex-col mh:gap-1 mt-1.5">
@@ -215,7 +215,7 @@ const PatientRegistration = (props) => {
               value={formData.address}
               onChange={handleChange}
  className='mh:px-8 border h-[100px] rounded-sm p-2 mh:py-2 mh:text-[42px] mh:mt-2 mh:rounded-[10px] border-[#232323]  mh:border-[2px] focus:outline-none'  />
- {errors.address && <span className="text-red-500 text-3xl font-bold">{errors.address}</span>}
+ {errors.address && <span className="text-red-500 text-sm font-bold">{errors.address}</span>}
           </div>
         </div>
         <Button  type="submit" className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-8 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">

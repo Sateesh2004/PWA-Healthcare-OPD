@@ -79,7 +79,7 @@ const PatientRegistrationExistingUsers = (props) => {
               </div>}
       <form
         onSubmit={handleSubmit}
-        className="bg-white mh:p-8 mh:rounded-[16px] rounded-md p-4 mx-14"
+        className="bg-white mh:p-8 mh:rounded-[16px] rounded-md p-4"
       >
         <div>
           <h1 className="mh:text-[52px] text-[20px] font-[600] ">
@@ -118,7 +118,7 @@ const PatientRegistrationExistingUsers = (props) => {
       </form>
       <div className="mh:px-10 px-6">
         <Button className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
-          Dont have an account
+          Don't have an account
         </Button>
       </div>
     </div>

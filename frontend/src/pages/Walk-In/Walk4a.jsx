@@ -18,20 +18,21 @@ const Walk4a = () => {
   return (
     <div className="mh:px-5 bg-hero bg-cover bg-center h-screen">
       
-      <div className={"flex justify-between pt-4 mh:mx-14"}>
-        <div onClick={()=>{navigate(-1,{state:date, doctorid, time,})}} className="flex text-white mh:mt-6">
+      <div className={"flex   justify-between  pt-4 mh:mx-16"}>
+          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+            <img
+              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              src="/images/vector.svg"
+            />
+            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+          </div>
           <img
-            className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="/images/vector.webp"
+            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            src="/images/logo.png"
           />
-          <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
-        <img
-          className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-          src="/images/logo.webp"
-        />
-      </div>
-      <div className=" mh:mx-14  ">
+        <div className="px-8" >
+          <div className="   ">
         <h1 className="text-[22px] mh:text-[60px] font-dmsans font-semibold text-white">
            {category}
         </h1>
@@ -44,9 +45,11 @@ const Walk4a = () => {
           
         </div>
       </div>
-      <div>
+      <div className="mt-28" >
         <PatientRegistrationExistingUsers doctorid={doctorid} date={date} time={time} patientNumber={patientNumber} category={category} />
       </div>
+        </div>
+      
 
       <FooterS back={true} />
     </div>

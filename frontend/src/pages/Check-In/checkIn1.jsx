@@ -178,11 +178,11 @@ async function  onSubmit(values) {
              
       
               <div className="bg-white relative rounded-[50px] p-10 shadow">
-              <div className="absolute top-5 right-5 cursor-pointer z-[1000]" onClick={() => setPopUp(false)}> <X size={50} /></div>
-              <div className="bg-white relative z-50 mh:text-[52px] text-black  font-[600] mh:p-8 mh:rounded-[16px]  p-4 mx-2">
+              <div className="absolute top-5 right-5 cursor-pointer z-[1000]" onClick={() => setPopUp(false)}> <X size={20} /></div>
+              <div className="bg-white relative z-50 mh:text-[52px] text-black  font-[600] text-center mh:rounded-[16px] ">
                 Patient is not registered
               </div>
-              <div className="mh:px-10 relative z-50 px-6">
+              <div className="relative z-50">
               <Button  onClick={()=>{navigate("/walkin1")}} className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
                 Book an Appointment and Register
               </Button>
@@ -196,7 +196,7 @@ async function  onSubmit(values) {
         /> */}
         <img
           className={"w-[14vh] mr-4 mh:w-[15vh] mh:mt-4"}
-          src="/images/logo.webp"
+          src="/images/logo.png"
         />
       </div>
       <div className="text-white font-semibold -ml-3 mh:ml-6">
@@ -213,29 +213,9 @@ async function  onSubmit(values) {
           >
             <div className="font-semibold text-xl mh:text-5xl">Welcome ! </div>
             <div className="text-xs mt-2 mh:text-3xl mh:mt-[30px]">
-              Enter Your Patient Name And Patient ID to confirm
+              Enter Your Patient ID to confirm
             </div>
-            {/* <FormField
-              control={form.control}
-              name="username"
-              render={({ field }) => (
-                <FormItem className="mt-4 mh:mt-20">
-                  <div className="-mb-1 mh:mb-3">
-                    <FormLabel className="text-black text-xs mh:text-3xl">
-                      Patient Name
-                    </FormLabel>
-                  </div>
-                  <FormControl>
-                    <Input
-                      className="border border-black text-xs font-semibold h-8 mh:text-3xl mh:px-7 mh:py-10 mh:rounded-xl"
-                      placeholder="Type your name"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> */}
+            
             <FormField
               control={form.control}
               name="id"
@@ -262,30 +242,10 @@ async function  onSubmit(values) {
             <div className="flex justify-end items-end text-[8px] text-gray-800 mt-1 mh:mt-6 mh:text-[23px]">
               Forgot Patient ID ?
             </div>
-            {otpCard?
-              <Button onClick={validateOTP}   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
-              SUBMIT OTP    
-                </Button>
-                :
-                <Button type="submit"   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
-              Generate OTP    
-                </Button>
-            }
-           
-              {/* <Button type="submit"   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
-             {otpCard?"Login":"Generate OTP"}   
-                </Button> */}
-                
-               
-            
-            
 
 
-            {/* <div className="flex justify-end items-end text-[8px] mh:text-[19px] text-gray-800 mt-1 mh:mt-6">
-              Forgot Patient ID ?
-            </div> */}
 
-{otpCard&&<div>
+            {otpCard&&<div>
 
 
             <div className="text-[10px] mh:text-[24px]6">
@@ -311,6 +271,23 @@ async function  onSubmit(values) {
     {OTPError&&<div className='text-red-500 text-[42px] text-center'>{OTPError}</div>}
     
     </div>}
+
+
+
+
+            {otpCard?
+              <Button onClick={validateOTP}   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
+              SUBMIT OTP    
+                </Button>
+                :
+                <Button type="submit"   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
+              Generate OTP    
+                </Button>
+            }
+           
+             
+
+
 
     
 
@@ -339,11 +316,11 @@ async function  onSubmit(values) {
       </div>
       <div className="flex justify-center items-center px-14 mh:px-32">
         <div className="flex w-full bg-[linear-gradient(89.99deg,_#084B83_-63.38%,_#16CDE1_124.88%)] h-7 justify-center items-center mh:h-20">
-          <div className="flex justify-center items-center text-white font-semibold text-sm mh:text-[40px]">
+          <div onClick={() => navigate("/checkin1a")} className="flex justify-center items-center text-white font-semibold text-sm mh:text-[40px]">
             Scan QR
             <img
               className="w-6 h-6 ml-1 p-1 mh:w-16 mh:h-16 mh:ml-5"
-              src="/images/qr-code.webp"
+              src="/assets/images/qr-code.webp"
             />
           </div>
         </div>
@@ -367,7 +344,7 @@ async function  onSubmit(values) {
           <img className="w-[12vh]" src="/images/footer.webp" />
         </div>
       </div> */}
-      <FooterS/>
+      <FooterS back="true" />
     </div>
   );
 }

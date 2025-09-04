@@ -1,22 +1,24 @@
 import React from "react";
 import { FaRegCircleUser } from "react-icons/fa6";
-
+import FooterS from "../../components/Footer/FooterS";
+import { useNavigate } from "react-router-dom";
 const CheckIn1a = () => {
+  const navigate = useNavigate()
   return (
     <div className="bg-hero bg-cover bg-center h-screen">
-      <div className={"flex justify-between pl-8 pt-4 mh:mr-4 mh:ml-14"}>
-        <div className="flex text-white mh:mt-6">
+       <div className={"flex   justify-between  pt-4 mh:mx-16"}>
+          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+            <img
+              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              src="/images/vector.svg"
+            />
+            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+          </div>
           <img
-            className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
-            src="/images/vector.webp"
+            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            src="/images/logo.png"
           />
-          <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
         </div>
-        <img
-          className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
-          src="/images/logo.webp"
-        />
-      </div>
 
       <div className="text-white font-semibold -ml-3 mh:ml-6">
         <div className="text-xl pl-10 mh:text-5xl">welcome to</div>
@@ -31,7 +33,7 @@ const CheckIn1a = () => {
       <div className="flex flex-col justify-center items-center">
         <img
           className="w-[14vh] mt-11 mh:mt-[147px]"
-          src="/images/qr-code.webp"
+          src="/assets/images/qr-code.webp"
         />
         <span className="text-white mt-4 mh:text-[36px] mh:mt-[36px]">
           Scaning
@@ -43,26 +45,13 @@ const CheckIn1a = () => {
       </div>
       <div className="flex justify-center items-center px-14 mh:px-32">
         <div className="flex w-full bg-gradient-to-r from-customBlue to-customCyan h-8 justify-center items-center mh:h-20">
-          <div className="flex justify-center items-center text-white font-semibold text-[15px] mh:text-[40px]">
+          <div onClick={() => navigate("/checkin1")} className="flex justify-center items-center text-white font-semibold text-[15px] mh:text-[40px]">
             Enter user info
           </div>
         </div>
       </div>
 
-      <div className="flex justify-between mh:mt-2">
-        <div className="ml-10 mh:ml-24">
-          <div
-            className={
-              "flex justify-center items-center p-2 bg-[#fff] text-white rounded font-semibold text-sm w-[14vh] h-[5vh] mt-[4vh] bg-customBlue border border-customGray mh:text-3xl mh:rounded-xl"
-            }
-          >
-            Back to start
-          </div>
-        </div>
-        <div className={"flex mt-[7vh] mr-9  mh:mr-24"}>
-          <img className="w-[12vh]" src="/images/footer.webp" />
-        </div>
-      </div>
+      <FooterS/>
     </div>
   );
 };

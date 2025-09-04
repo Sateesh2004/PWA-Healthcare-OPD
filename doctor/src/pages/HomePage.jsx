@@ -6,157 +6,184 @@ const HomePage = () => {
   const navigate = useNavigate();
   const doctor = location.state?.doctor;
 
+  const [activeTab, setActiveTab] = useState("to do");
+  const [currentMinutes, setCurrentMinutes] = useState(0);
   const [appointments, setAppointments] = useState([]);
-  const [loading, setLoading] = useState(true);
 
-  // ✅ Fetch doctor appointments
+  // Convert time string ("10:30 AM" or "11:00pm") to minutes
+  const timeToMinutes = (timeStr) => {
+    let time = timeStr.trim().toUpperCase();
+    const [hPart, mPart] = time.replace(/AM|PM/, "").trim().split(":");
+    let hours = parseInt(hPart, 10);
+    let minutes = mPart ? parseInt(mPart, 10) : 0;
+    if (time.includes("PM") && hours !== 12) hours += 12;
+    if (time.includes("AM") && hours === 12) hours = 0;
+    return hours * 60 + minutes;
+  };
+
+  // Timeline range (8AM - 11PM)
+  const startMinutes = timeToMinutes("08:00 AM");
+  const endMinutes = timeToMinutes("11:59 PM");
+
+  // Update current time every minute
   useEffect(() => {
-    const fetchAppointments = async () => {
-      if (!doctor?.id) return;
+    const updateTime = () => {
+      const now = new Date();
+      const mins = now.getHours() * 60 + now.getMinutes();
+      setCurrentMinutes(mins);
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
+  // Fetch appointments
+  useEffect(() => {
+    const fetchData = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/doctors/${doctor.id}/appointments`);
-        const data = await res.json();
-
-        if (res.ok) {
-          setAppointments(data.appointments);
-        } else {
-          console.error("Failed to fetch appointments:", data.message);
-        }
+        const response = await fetch(
+          `http://localhost:3000/doctors/${doctor.id}/appointments`
+        );
+        const result = await response.json();
+        setAppointments(result.appointments || []);
       } catch (error) {
-        console.error("Error fetching appointments:", error.message);
-      } finally {
-        setLoading(false);
+        console.error("Error fetching appointments:", error);
       }
     };
+    fetchData();
+  }, [doctor.id]);
 
-    fetchAppointments();
-  }, [doctor?.id]);
+  // Calculate position of current time line
+  const getLinePosition = () => {
+    if (currentMinutes < startMinutes || currentMinutes > endMinutes) return null;
+    const totalMinutes = endMinutes - startMinutes;
+    const percent = ((currentMinutes - startMinutes) / totalMinutes) * 100;
+    return `${percent}%`;
+  };
 
-  if (!doctor) {
-    return (
-      <div className="h-screen flex items-center justify-center bg-gray-100">
-        <p className="text-gray-600 text-lg">No doctor data found. Please login again.</p>
-      </div>
-    );
-  }
+  const linePosition = getLinePosition();
+
+  // Filter appointments by tab/status
+  const filteredAppointments = appointments.filter((appt) => {
+    if (activeTab === "to do" || activeTab === "in progress") {
+      return appt.status === "pending";
+    }
+    if (activeTab === "completed") {
+      return appt.status === "completed";
+    }
+    return true;
+  });
 
   return (
     <div className="min-h-screen bg-[#EBF6F9] flex flex-col">
-        <div className="p-4" >
-      
-
-      <header className="flex  gap-16  justify-between" >
-        <div className="w-[70%] bg-white border rounded-lg  p-4" >
-            <div className="font-bold text-xl" >Hello {doctor.name}</div>
-            <div className="" >{doctor.category}</div>
+      <div className="p-4">
+        {/* Header */}
+        <header className="flex gap-4 justify-between">
+          <div className="w-[70%] flex gap-4 bg-white border rounded-lg p-2">
+            <div className="bg-[#f7f3ff] border p-2 flex items-center justify-center rounded-full h-[54px] w-[70px]">
+              <img className="rounded-full" src="/images/User_001.png" />
             </div>
-        <div className="bg-white border rounded-lg w-[30%] leading-[50px] p-4" >Hospital Logo</div>
-      </header>
-
-      {/* Content */}
-      <main className="flex-1 p-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Profile Card */}
-          <div className="md:col-span-1 bg-white rounded-2xl shadow p-6 flex flex-col items-center">
-            <div className="w-24 h-24 rounded-full bg-indigo-200 flex items-center justify-center text-3xl font-bold text-indigo-700">
-              {doctor.name.charAt(0)}
+            <div className="w-full">
+              <div className="font-bold text-md">Hello {doctor.name}</div>
+              <div>{doctor.category}</div>
             </div>
-            <h2 className="mt-4 text-xl font-semibold text-gray-800">{doctor.name}</h2>
-            <p className="text-gray-500">{doctor.category}</p>
-            <p className="mt-2 text-sm">
-              {doctor.availability ? (
-                <span className="text-green-600 font-medium">Available ✅</span>
-              ) : (
-                <span className="text-red-600 font-medium">Not Available ❌</span>
-              )}
-            </p>
           </div>
+          <div className="bg-white border rounded-lg w-[30%] leading-[50px] p-2">
+            <img src="/images/blacl_logo.png" alt="" />
+          </div>
+        </header>
 
-          {/* Stats Cards */}
-          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-white rounded-2xl shadow p-6">
-              <h3 className="text-gray-600 font-medium mb-2">Working Hours</h3>
-              <p className="text-lg font-semibold text-indigo-700">
-                {doctor.openingtime} - {doctor.closingtime}
+        {/* Schedule */}
+        <div className="p-6 mt-4 bg-white border rounded-xl shadow-md max-w-2xl mx-auto relative">
+          <div className="flex justify-between items-center">
+            <div>
+              <h2 className="text-lg font-semibold">Today's Schedule</h2>
+              <p className="text-gray-500 text-sm">
+                {activeTab === "completed" ? "Completed" : "Ongoing"}
               </p>
             </div>
-
-            <div className="bg-white rounded-2xl shadow p-6">
-              <h3 className="text-gray-600 font-medium mb-2">Waiting Patients</h3>
-              <p className="text-lg font-semibold text-indigo-700">{doctor.waitingpatients}</p>
-            </div>
           </div>
 
-          {/* Available Slots */}
-          <div className="md:col-span-3 bg-white rounded-2xl shadow p-6">
-            <h3 className="text-gray-800 font-semibold mb-4 text-lg">Available Slots</h3>
-            <div className="space-y-6">
-              {doctor.availabledateslots.map((slot, index) => (
-                <div key={index}>
-                  <p className="font-medium text-indigo-600">{slot.date}</p>
-                  <div className="flex flex-wrap gap-3 mt-2">
-                    {slot.timeslots.map((time, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-2 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-sm font-medium shadow-sm"
-                      >
-                        {time}
-                      </span>
-                    ))}
+          {/* Tabs */}
+          <div className="flex gap-2 mt-4">
+            {["To Do", "In Progress", "Completed"].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab.toLowerCase())}
+                className={`px-4 py-1 rounded-md text-sm font-medium ${
+                  activeTab === tab.toLowerCase()
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Timeline */}
+          <div className="relative mt-6">
+            <div className="absolute left-16 top-0 bottom-0 w-0.5 bg-gray-200"></div>
+
+            {/* Current time line */}
+            {linePosition && (
+              <div
+                className="absolute left-0 right-0 flex items-center"
+                style={{ top: linePosition }}
+              >
+                <div className="w-16 text-right pr-2 text-xs text-red-500 font-semibold">
+                  {new Date().toLocaleTimeString([], {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
+                </div>
+                <div className="flex-1 h-0.5 bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-red-500 ml-2"></div>
+              </div>
+            )}
+
+            {/* Appointments */}
+            {filteredAppointments.length > 0 ? (
+              filteredAppointments.map((appt) => (
+                <div key={appt.appid} className="relative flex items-start mb-6">
+                  {/* Time indicator */}
+                  <div className="w-20 text-right pr-4">
+                    <span className="block font-semibold text-gray-600">
+                      {appt.time}
+                    </span>
+                  </div>
+
+                  {/* Timeline Dot */}
+                  <div
+                    className="absolute left-16 w-4 h-4 rounded-full border-4 bg-white border-gray-400"
+                    style={{ transform: "translateX(-50%)" }}
+                  ></div>
+
+                  {/* Appointment Card */}
+                  <div
+                    className={`ml-10 w-full border-l-4 ${
+                      appt.status === "completed"
+                        ? "border-green-400 bg-green-50 text-green-600"
+                        : "border-orange-400 bg-orange-50 text-orange-600"
+                    } p-4 rounded-lg shadow-sm`}
+                  >
+                    <p className="text-sm font-semibold text-gray-700">
+                      Patient: {appt.patientName} ({appt.patientPhone})
+                    </p>
+                    <h3 className="font-bold text-gray-800 mt-1">
+                      {appt.doctorcategory}
+                    </h3>
+                    <p className="text-sm text-gray-500">
+                      Status: {appt.status}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Appointments Section */}
-          <div className="md:col-span-3 bg-white rounded-2xl shadow p-6">
-            <h3 className="text-gray-800 font-semibold mb-4 text-lg">Appointments</h3>
-            {loading ? (
-              <p className="text-gray-500">Loading appointments...</p>
-            ) : appointments.length === 0 ? (
-              <p className="text-gray-500">No appointments found.</p>
+              ))
             ) : (
-              <div className="overflow-x-auto">
-                <table className="w-full border-collapse">
-                  <thead>
-                    <tr className="bg-indigo-50 text-left text-sm font-medium text-gray-600">
-                      <th className="p-3 border">Patient</th>
-                      <th className="p-3 border">Phone</th>
-                      <th className="p-3 border">Date</th>
-                      <th className="p-3 border">Time</th>
-                      <th className="p-3 border">Payment</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {appointments.map((appt) => (
-                      <tr
-                        key={appt.appid}
-                        className="text-sm text-gray-700 hover:bg-gray-50 transition"
-                      >
-                        <td className="p-3 border">{appt.patientName}</td>
-                        <td className="p-3 border">{appt.patientPhone}</td>
-                        <td className="p-3 border">{appt.date}</td>
-                        <td className="p-3 border">{appt.time}</td>
-                        <td
-                          className={`p-3 border font-medium ${
-                            appt.paymentstatus === "Paid"
-                              ? "text-green-600"
-                              : "text-red-600"
-                          }`}
-                        >
-                          {appt.paymentstatus}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
+              <p className="text-gray-500 text-sm mt-4">No appointments</p>
             )}
           </div>
         </div>
-      </main>
       </div>
     </div>
   );

@@ -104,6 +104,10 @@ const App = () => {
       element:<CheckIn1/>
     },
     {
+      path:"/checkin1a",
+      element:<CheckIn1a/>
+    },
+    {
       path:"/checkin2",
       element:<CheckIn2/>
     },
