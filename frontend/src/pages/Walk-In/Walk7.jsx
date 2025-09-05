@@ -59,7 +59,7 @@ const Walk7 = () => {
             </div>
           </div>
           <div  className="flex mh:rounded-[12px] border border-customGray justify-between items-center  bg-gradient-to-r from-[#084B83] from-40% to-[#16CDE1] mh:px-[43px] mh:py-[30px] px-4 py-2 font-dmsans mt-10 rounded-[4px]">
-            <div onClick={()=>{navigate('/walkin8',{state:{appointment,category}});}} className="mh:text-[52px] text-[18px] text-white">
+            <div onClick={()=>{navigate('/checkin5',{state:{appointment,category}});}} className="mh:text-[52px] text-[18px] text-white">
             <h1>Pay in Cash (At Counter)</h1>
               <p className="mh:text-[25.6px] text-[10px] mt-0.5">
               I Dont't have an Appointment

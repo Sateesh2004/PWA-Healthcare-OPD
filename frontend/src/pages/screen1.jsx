@@ -10,13 +10,26 @@ const Screen1 = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("http://localhost:3000/languages");
+  const fetchData = async () => {
+    try {
+       const response = await fetch("https://c27f945dc64a.ngrok-free.app/languages", {
+        method: "GET",
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
       setLanguages(data);
-    };
-    fetchData();
-  }, []);
+    } catch (error) {
+      console.error("Error fetching languages:", error.message);
+    }
+  };
+
+  fetchData();
+}, []);
+
 
   const handleSelection = (index) => {
     setActiveIndex(index);

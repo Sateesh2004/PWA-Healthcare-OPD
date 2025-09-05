@@ -25,7 +25,6 @@ const Walk5 = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const category = location.state.category;
-  console.log(location)
   const[patientInfo,setPatientInfo]=useState({
     patientName:'',
     patientId:'',
@@ -40,7 +39,6 @@ const Walk5 = () => {
     useEffect(()=>{
       const fetchData = async () => {
         const patientNumber = location.state.patientNumber;
-        console.log(patientNumber)
         const response = await fetch(`http://localhost:3000/patient/getpatient/${patientNumber}`);
         const data = await response.json();
         console.log("hid",data)
