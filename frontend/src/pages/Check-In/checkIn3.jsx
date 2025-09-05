@@ -27,7 +27,7 @@ const CheckIn3 = () => {
 
   useEffect(() => {
     const fetchData =async()=>{
-      const response =await  fetch(`http://localhost:3000/appointment/appointments/${id}`)
+      const response =await  fetch(`https://pwa-healthcare-opd-12.onrender.com//appointment/appointments/${id}`)
       const data = await response.json()
       setAppointments(data)
       console.log(data)

@@ -12,7 +12,7 @@ const Screen1 = () => {
   useEffect(() => {
   const fetchData = async () => {
     try {
-       const response = await fetch("https://c27f945dc64a.ngrok-free.app/languages", {
+       const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/languages", {
         method: "GET",
       });
 

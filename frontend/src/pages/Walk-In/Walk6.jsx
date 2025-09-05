@@ -39,7 +39,7 @@ const Walk6 = () => {
     const fetchData = async () => {
       const patientId = location.state.patientId
       console.log(patientId)
-      const respponse = await fetch(`http://localhost:3000/appointment/${patientId}`)
+      const respponse = await fetch(`https://pwa-healthcare-opd-12.onrender.com//appointment/${patientId}`)
       const data = await respponse.json()
       
       setAppointment(data)

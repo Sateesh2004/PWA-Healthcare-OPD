@@ -89,7 +89,7 @@ const CheckIn2 = () => {
 
 
     const patientId = values.id
-    const response = await fetch("http://localhost:3000/patient/validateotp",{
+    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/validateotp",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

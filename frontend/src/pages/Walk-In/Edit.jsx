@@ -67,7 +67,7 @@ const Edit = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try{
-        const response = await fetch("http://localhost:3000/patient/update", {
+        const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/update", {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

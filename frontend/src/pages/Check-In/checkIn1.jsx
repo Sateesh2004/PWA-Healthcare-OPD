@@ -103,7 +103,7 @@ const CheckIn1 = () => {
 
 
     
-    const response = await fetch("http://localhost:3000/patient/validateotp",{
+    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/validateotp",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -141,7 +141,7 @@ async function  onSubmit(values) {
     
     return 
   }
-    const response = await fetch("http://localhost:3000/patient/signin",{
+    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/signin",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

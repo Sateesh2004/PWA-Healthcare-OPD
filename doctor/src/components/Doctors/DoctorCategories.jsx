@@ -10,7 +10,7 @@ const DoctorCategories = () => {
     useEffect(()=>{
 
         const fetchData = async ()=>{
-            const response = await fetch("http://localhost:3000/doctors");
+            const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//doctors");
             const data = await response.json();
             setDoctorsData(data);
             console.log(doctorsData)

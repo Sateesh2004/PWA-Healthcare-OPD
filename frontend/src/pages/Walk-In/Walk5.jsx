@@ -39,7 +39,7 @@ const Walk5 = () => {
     useEffect(()=>{
       const fetchData = async () => {
         const patientNumber = location.state.patientNumber;
-        const response = await fetch(`http://localhost:3000/patient/getpatient/${patientNumber}`);
+        const response = await fetch(`https://pwa-healthcare-opd-12.onrender.com//patient/getpatient/${patientNumber}`);
         const data = await response.json();
         console.log("hid",data)
         setNewData(data)
