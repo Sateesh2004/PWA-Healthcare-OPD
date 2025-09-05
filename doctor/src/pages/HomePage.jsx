@@ -42,7 +42,7 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://pwa-healthcare-opd-12.onrender.com//doctors/${doctor.id}/appointments`
+          `https://pwa-healthcare-opd-12.onrender.com/doctors/${doctor.id}/appointments`
         );
         const result = await response.json();
         setAppointments(result.appointments || []);

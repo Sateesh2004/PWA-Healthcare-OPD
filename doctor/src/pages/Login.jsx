@@ -10,7 +10,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://pwa-healthcare-opd-12.onrender.com//doctors/login", {
+      const res = await fetch("https://pwa-healthcare-opd-12.onrender.com/doctors/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
