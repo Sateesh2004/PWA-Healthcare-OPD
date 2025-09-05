@@ -1,16 +1,20 @@
 import express from 'express';
-import doctorsRoutes from './routes/doctorsRoutes.js';
-import languagesRoutes from './routes/languagesRoutes.js'
+import doctorsRoutes from './src/routes/doctorsRoutes.js';
+import languagesRoutes from './src/routes/languagesRoutes.js'
 import cors from 'cors';
-import patientRoutes from './routes/patientRoutes.js';
-import appointmentRoutes from './routes/appointmentRoutes.js';
-// import {connectDB} from './config/db.js';
+import patientRoutes from './src/routes/patientRoutes.js';
+import appointmentRoutes from './src/routes/appointmentRoutes.js';
+
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 
+
+app.get('/', (req, res) => {
+  res.send('Hello World');
+});
 app.use('/languages',languagesRoutes)
 app.use('/doctors',doctorsRoutes)
 app.use('/patient',patientRoutes)

@@ -6,8 +6,8 @@ import {save} from '../utils/save.js';
 
 export const getLanguages = async (req, res) => {
    
+    console.log("came to fetch languages")
     try {
-        
         return res.json(languages); 
     } catch (error) {
         console.error(error);

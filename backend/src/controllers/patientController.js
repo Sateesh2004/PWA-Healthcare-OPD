@@ -125,9 +125,10 @@ export const otpValidator=(req,res)=>{
 export const getPatient  = async (req, res) => {
     
     const { patientNumber } = req.params;
-    console.log(patientNumber)
+    console.log("get patient",patientNumber)
     for(let i=0;i<Patients.length;i++){
       if(Patients[i].patientPhone==patientNumber){
+        console.log("got patient")
         return res.json(Patients[i])
     
       }}
