@@ -141,7 +141,7 @@ async function  onSubmit(values) {
     
     return 
   }
-    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/signin",{
+    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/signin",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
