@@ -67,7 +67,7 @@ const PatientRegistration = (props) => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/registration", {
+      const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/registration", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

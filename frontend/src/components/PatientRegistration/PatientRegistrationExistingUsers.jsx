@@ -37,7 +37,7 @@ const PatientRegistrationExistingUsers = (props) => {
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form Data Submitted:", formData);
     }
-    const response =await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/registration", {
+    const response =await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/registration", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
