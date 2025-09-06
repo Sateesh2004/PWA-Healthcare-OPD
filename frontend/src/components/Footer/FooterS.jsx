@@ -4,9 +4,10 @@ const FooterS = (props) => {
     console.log(props)
     const navigate = useNavigate();
   return (
-    <div className="mx-8 fixed bottom-6 left-0 right-0   block "> 
-      <div className='flex   justify-between  items-end w-full'>
-    <div className="">
+    <div className="absolute bottom-3 w-[calc(100vw-24px)]"> 
+    <div className=' block' >
+      <div className='flex    justify-between  items-end'>
+   
       <div
       onClick={() => navigate("/")}
         className={ 
@@ -15,9 +16,10 @@ const FooterS = (props) => {
       >
         Back to start
       </div>
-    </div>
+    
     <div className={"h-[20px] w-[100px]"}>
       <img className="" src="./assets/images/footer.webp" />
+    </div>
     </div>
     </div>
   </div>

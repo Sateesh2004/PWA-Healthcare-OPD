@@ -26,6 +26,20 @@ const formSchema = z.object({
 
 const CheckIn1 = () => {
 
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
+
 
   const [id, setId] = useState(""); 
   const [otpCard, setOtpCard] = useState(false);
@@ -103,7 +117,7 @@ const CheckIn1 = () => {
 
 
     
-    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/validateotp",{
+    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/validateotp",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -171,7 +185,7 @@ async function  onSubmit(values) {
 
   
   return (
-    <div className=" relative bg-hero bg-cover bg-center h-screen">
+      <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
          {popUp  && <div className="fixed flex justify-center flex-col items-center top-0 left-0 w-full h-full  bg-[#0000003b] ">
               
       
@@ -190,22 +204,26 @@ async function  onSubmit(values) {
       
             </div>
               </div>}
-      <div className={"flex justify-end pt-4 mh:mr-4 mh:ml-14 pl-12"}>
-        {/* <FaRegCircleUser
-          className={"text-white text-xl mt-1 mh:text-5xl mh:mt-8"}
-        /> */}
-        <img
-          className={"w-[14vh] mr-4 mh:w-[15vh] mh:mt-4"}
-          src="/images/logo.png"
-        />
-      </div>
-      <div className="text-white font-semibold -ml-3 mh:ml-6">
-        <div className="text-2xl pl-12 mh:text-5xl">welcome to</div>
-        <div className="text-3xl pl-12 mh:text-7xl mh:mt-4">
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
+            <img
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              src="/images/vector.svg"
+            />
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
+          </div>
+          <img
+            className={"w-[14vh] mh:w-[13vh]"}
+            src="/images/logo.png"
+          />
+        </div>
+      <div className="text-white font-semibold">
+        <div className="text-2xl mh:text-5xl">welcome to</div>
+        <div className="text-3xl  mh:text-7xl mh:mt-4">
           Narayana Eye Hospital OPD
         </div>
       </div>
-      <div className="px-[40px] mt-[110px] mh:px-[5vh] mh:mt-[14vh]">
+      <div className=" mt-[50px]">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -239,7 +257,7 @@ async function  onSubmit(values) {
               )}
             />
 
-            <div className="flex justify-end items-end text-[8px] text-gray-800 mt-1 mh:mt-6 mh:text-[23px]">
+            <div className="flex justify-end text-sm items-end  text-gray-800 mt-1 mh:mt-6">
               Forgot Patient ID ?
             </div>
 
@@ -251,7 +269,7 @@ async function  onSubmit(values) {
             <div className="text-[10px] mh:text-[24px]6">
               ENTER OTP SENT ON THE REGISTRED NO.
             </div>
-            <div className="text-[8px] mh:text-[19px]">resend otp</div>
+            <div className="text-sm mh:text-[19px]">resend otp</div>
 
             <div className="grid grid-cols-4 px-16 gap-3 mh:gap-10 mh:px-32 mt-2">
       {Array(4)
@@ -259,16 +277,18 @@ async function  onSubmit(values) {
         .map((_, index) => (
           <input
             key={index}
-            type="text"
+            type="tel"
+            inputMode="numeric"
+            pattern="[0-9]*"
             maxLength="1"
             ref={(el) => (inputRefs.current[index] = el)}
-            className="border border-black rounded-md w-[40px] pl-2 h-[40px] mh:w-[100px] mh:h-[100px] mh:rounded-2xl text-center text-xl"
+            className="border border-black rounded-md w-[40px] my-2  h-[40px] mh:w-[100px] mh:h-[100px] mh:rounded-2xl text-center text-xl"
             onChange={(event) => handleChange(index, event)}
             onKeyDown={(event) => handleKeyDown(index, event)}
           />
         ))}
     </div>
-    {OTPError&&<div className='text-red-500 text-[42px] text-center'>{OTPError}</div>}
+    {OTPError&&<div className='text-red-500 text-sm my-2 text-center'>{OTPError}</div>}
     
     </div>}
 
@@ -276,11 +296,11 @@ async function  onSubmit(values) {
 
 
             {otpCard?
-              <Button onClick={validateOTP}   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
+              <Button onClick={validateOTP}   className="w-full py-4 rounded-none mt-2 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
               SUBMIT OTP    
                 </Button>
                 :
-                <Button type="submit"   className="w-full rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
+                <Button type="submit"   className="w-full py-4 rounded-none mt-4 text-sm bg-gradient-to-r from-customBlue from-35% to-customCyan h-7 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-14 mh:mb-3">
               Generate OTP    
                 </Button>
             }
@@ -303,28 +323,6 @@ async function  onSubmit(values) {
           </form>
         </Form>
 
-
-
-
-         
-           
-
-            
-
-      <div className="flex text-white justify-center items-center text-lg font-semibold py-4 mh:text-4xl mh:py-10">
-        OR
-      </div>
-      <div className="flex justify-center items-center px-14 mh:px-32">
-        <div className="flex w-full bg-[linear-gradient(89.99deg,_#084B83_-63.38%,_#16CDE1_124.88%)] h-7 justify-center items-center mh:h-20">
-          <div onClick={() => navigate("/checkin1a")} className="flex justify-center items-center text-white font-semibold text-sm mh:text-[40px]">
-            Scan QR
-            <img
-              className="w-6 h-6 ml-1 p-1 mh:w-16 mh:h-16 mh:ml-5"
-              src="/assets/images/qr-code.webp"
-            />
-          </div>
-        </div>
-      </div>
       </div>
 
 

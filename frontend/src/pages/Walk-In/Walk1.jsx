@@ -1,5 +1,5 @@
 import { ChevronLeft } from "lucide-react";
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "../../components/ui/button";
 import Carousel from "../../components/Carousel/carousel";
 import Footer from "../../components/Footer/Footer";
@@ -8,6 +8,19 @@ import DoctorCategories from "../../components/Doctors/DoctorCategories";
 import FooterS from "../../components/Footer/FooterS";
 const Walk1 = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
 
   
 
@@ -16,32 +29,32 @@ const Walk1 = () => {
 
 
   return (
-    <div className="  bg-hero   h-screen bg-cover bg-center">
-      <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+    <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
             <img
-              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
               src="/images/vector.svg"
             />
-            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
       
-      <div className="px-8" >
+     
         <div className="text-white  font-semibold   mh:mx-16 -mt-2 mh:-mt-4">
-          <h2 className="text-xl mh:text-6xl">welcome to</h2>
-          <h2 className="text-2xl mh:text-7xl mh:mt-4 mh:mb-12 mb-4">
+          <h2 className="text-lg mh:text-6xl">welcome to</h2>
+          <h2 className="text-xl mh:text-7xl mh:mt-4 mh:mb-12 mb-3">
             Narayana Eye Hospital OPD
           </h2>
 
           <Carousel />
           <div className="mt-5 mh:mt-16 mb-2">
-            <p className="mh:text-[36px] text-[16px] text-white mh:font-[700]">
-              Select for Immediate genral OPD consultation
+            <p className="mh:text-[36px] text-[14px] text-white mh:font-[700]">
+              Select for Immediate general OPD consultation
             </p>
           </div>
           <div>
@@ -55,7 +68,7 @@ const Walk1 = () => {
          
           <DoctorCategories/>
         </div>
-      </div>
+    
       <FooterS back={true}/>
     </div>
   );

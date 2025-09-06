@@ -125,11 +125,11 @@ function DoctorCardExtended(props) {
       </div>
 
       {/* Date Slots */}
-      <div className="text-[10px] font-semibold mt-2 mh:text-[28px]">
+      <div className="text-[12px] font-semibold mt-2 mh:text-[28px]">
         Available Date slots
       </div>
       <div className="text-[9px] font-semibold mt-1 mh:text-[22px] mh:mt-3">
-        <h1 className="flex mt-1 mh:text-[22px] gap-1 mh:mt-2 mh:gap-2">
+        <h1 className="flex mt-1 text-[12px] gap-1 mh:mt-2 mh:gap-2">
           {(() => {
             const formatDate = new Date(activeDate);
             const day = formatDate.getDate();
@@ -158,20 +158,20 @@ function DoctorCardExtended(props) {
               <div
                 onClick={() => setActiveDate(slot.date)}
                 key={index}
-                className={`text-black hover:cursor-pointer text-center flex items-center justify-center ${
+                className={`text-black hover:cursor-pointer text-center  flex items-center justify-center ${
                   activeDate === slot.date
                     ? "bg-[linear-gradient(89.99deg,_#084B83_-63.38%,_#16CDE1_124.88%)] text-white"
                     : "bg-white"
-                } border border-gray-300 rounded-lg  w-[35px] h-[35px] mh:w-[90px] mh:h-[90px]  mh:rounded-2xl`}
+                } border border-gray-300 rounded-lg  px-6 py-1   mh:rounded-2xl`}
               >
                 <div>
-                  <div className="font-semibold  text-[7px] mh:text-[16px]">
+                  <div className="font-semibold  text-[12px] mh:text-[16px]">
                     {day}
                   </div>
-                  <div className=" text-[7px] mh:text-[16px] font-semibold">
+                  <div className=" text-[12px] mh:text-[16px] font-semibold">
                     {weekday}
                   </div>
-                  <div className=" text-[7px] mh:text-[16px] font-semibold">
+                  <div className=" text-[12px] mh:text-[16px] font-semibold">
                     {month}
                   </div>
                 </div>
@@ -182,10 +182,10 @@ function DoctorCardExtended(props) {
       </div>
 
       {/* Time Slots */}
-      <div className="text-[10px] font-semibold mt-1 mh:text-[28px] mh:mt-2">
+      <div className="text-[12px] font-semibold mt-1 mh:text-[28px] mh:mt-2">
         Available Time slots
       </div>
-      <div className="text-[9px] font-semibold mh:text-[22px]">
+      <div className="text-[12px] font-semibold mh:text-[22px]">
         <h1 className="flex mt-1 mh:text-[22px] gap-1 mh:mt-2 mh:gap-2">
           {(() => {
             const formatDate = new Date(activeDate);
@@ -205,13 +205,13 @@ function DoctorCardExtended(props) {
           })()}
         </h1>
 
-        <div className="grid grid-cols-5 gap-x-4 gap-y-2 ml-1 mt-1 mh:gap-x-10 mh:gap-y-6">
+        <div className="flex  gap-x-4 gap-y-2 mt-1 mh:gap-x-10 mh:gap-y-6">
           {times.map((time, index) => (
             <div
               onClick={() => {
                 timeSelector(time, index);
               }}
-              className={`flex rounded-sm hover:cursor-pointer border border-gray-300 px-1 py-1 mh:py-3 mh:rounded-xl justify-center ${
+              className={`rounded-sm p-2  hover:cursor-pointer border border-gray-300  ${
                 selectedTime == index
                   ? "bg-[linear-gradient(89.99deg,_#084B83_-63.38%,_#16CDE1_124.88%)] text-white"
                   : "bg-white text-black"
@@ -228,7 +228,7 @@ function DoctorCardExtended(props) {
       <div className="border-t border-t-gray-300 mt-4">
         <div
           onClick={handleNavigate}
-          className="mt-2 hover:bg-customBlue hover:text-white hover:cursor-pointer py-1 flex justify-center text-[10px] font-dmsans-500 font-semibold mh:text-[24px] mh:py-5"
+          className="mt-2 hover:bg-customBlue hover:text-white hover:cursor-pointer py-1 flex justify-center text-[12px] font-dmsans-500 font-semibold mh:text-[24px] mh:py-5"
         >
           Book Appointment
         </div>

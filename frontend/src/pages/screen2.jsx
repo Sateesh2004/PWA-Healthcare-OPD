@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaRegCircleUser } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -6,37 +6,39 @@ import Footer from '../components/Footer/Footer';
 import { useNavigate } from 'react-router-dom';
 import FooterS from '../components/Footer/FooterS';
 const Screen2 = () => {
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
   const navigate = useNavigate();
   const location = useLocation();
   console.log(location.state)
   return (
-    <div className="bg-hero  h-screen bg-cover bg-center">
-      <div className='mh:mx-16'>
-      <div className=" ">
-        
-        
-<div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+    <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
+      
+      
+ <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
             <img
-              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
               src="/images/vector.svg"
             />
-            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
-
-
-
-
-
-
-
-        </div>
-
 
 
 
@@ -51,7 +53,7 @@ const Screen2 = () => {
       >
         <div onClick={() => navigate("/checkin1")}
           className={
-            "p-2 bg-[#fff] text-white border rounded-md font-semibold flex flex-col w-[80vw] mt-10 bg-gradient-to-r from-customBlue to-customCyan    -customGray mh:w-[80vw] mh:h-[9vh] mh:text-5xl mh:p-8"
+            "p-2 bg-[#fff] text-white border rounded-md font-semibold flex flex-col w-[calc(100vw-24px)] mt-10 bg-gradient-to-r from-customBlue to-customCyan    -customGray mh:w-[80vw] mh:h-[9vh] mh:text-5xl mh:p-8"
           }
         >
           Check-in
@@ -63,7 +65,7 @@ const Screen2 = () => {
         <div
         onClick={()=>{navigate("/walkin1")}}
           className={
-            "p-2 bg-[#fff] border text-white rounded-md font-semibold flex flex-col w-[80vw] mt-10 bg-gradient-to-r from-customBlue to-customCyan    - -customGray mh:w-[80vw] mh:h-[9vh] mh:text-5xl mh:p-8"
+            "p-2 bg-[#fff] border text-white rounded-md font-semibold flex flex-col  w-[calc(100vw-24px)] mt-10 bg-gradient-to-r from-customBlue to-customCyan    - -customGray mh:w-[80vw] mh:h-[9vh] mh:text-5xl mh:p-8"
           }
         >
           <p> Walk-in</p>
@@ -73,7 +75,7 @@ const Screen2 = () => {
           </span>
         </div>
           
-      </div>
+      
     </div>
       <FooterS back={true}/>
     </div>

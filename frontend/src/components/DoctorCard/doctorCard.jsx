@@ -3,7 +3,7 @@ import { GoClock } from "react-icons/go";
 import { CiClock2 } from "react-icons/ci";
 import { useNavigate } from 'react-router-dom';
 
-function DoctorCard(props) {
+function  DoctorCard(props) {
   const selectedCategory = props.doctorsData.find(
     (category) => category.category === props.categoryName
   );
@@ -86,14 +86,14 @@ function DoctorCard(props) {
                       </div>
                       <div className="grid grid-col mh:-mt-5 -mt-2">
                         <span className="mh:text-[23px] text-[10px] text-blue-400 flex">
-                          <GoClock className="mh:text-[28px] text-[12px]" />
-                          <span className="mh:-mt-1 -mt-0.5 mh:ml-2 ml-1">
+                          <GoClock className="text-[12px]" />
+                          <span className="mh:-mt-1 -mt-0.5 mh:ml-2 text-[12px] ml-1">
                             {doctor.openingtime} - {doctor.closingtime}
                           </span>
                         </span>
-                        <span className="mh:text-[23px] text-[10px] mh:mt-3 text-yellow-400 flex">
-                          <CiClock2 className="mh:text-[28px] text-[12px]" />
-                          <span className="mh:-mt-1 -mt-0.5 mh:ml-2 ml-1">
+                        <span className="text-[10px] mh:mt-3 text-yellow-400 flex">
+                          <GoClock className="text-[12px]" />
+                          <span className="mh:-mt-1 text-[12px] -mt-0.5 mh:ml-2 ml-1">
                             {doctor.waitingpatients}
                           </span>
                         </span>

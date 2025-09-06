@@ -47,6 +47,8 @@ export const register = async (req, res) => {
     return res.status(401).send({message:"Patient not found"})
   }
     else{
+
+      console.log("came to register patient")
     
     for(let i=0;i<Patients.length;i++){
       if(Patients[i].patientPhone==req.body.patientPhone){

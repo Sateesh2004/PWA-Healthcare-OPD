@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation,useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import Flow from '../../components/Flow/Flow';
@@ -96,12 +96,28 @@ const Edit = () => {
 
 
 
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
+
+
+
 
 
 
 
   return (
-    <div className="bg-hero bg-cover bg-center h-screen">
+      <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
     {popUp  && <div className="fixed flex justify-center flex-col items-center top-0 left-0 w-full h-full  bg-[#0000003b] ">
       
 
@@ -120,21 +136,27 @@ const Edit = () => {
 
     </div>
       </div>}
-      
-        <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+
+
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
             <img
-              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
               src="/images/vector.svg"
             />
-            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
-        <div className='px-8' >
+
+
+
+      
+        
+        <div className='' >
         <div className="  ">
           <h1 className="text-[22px] mh:text-[60px] font-dmsans font-semibold text-white">
            {category}
@@ -150,7 +172,7 @@ const Edit = () => {
 
     <form
       onSubmit={handleSubmit}
-      className="bg-white mt-10 mh:p-8 mh:rounded-[16px] mh:mt-10 rounded-md p-4"
+      className="bg-white mt-4 mh:p-8 mh:rounded-[16px] mh:mt-10 rounded-md p-4"
     >
       <div>
         <h1 className="mh:text-[52px] text-[20px] font-[600] ">
@@ -162,19 +184,19 @@ const Edit = () => {
       </div>
       <div className="mh:mt-12 mt-5">
         <div className="flex flex-col mh:gap-1 mh:py-5">
-          <label className="mh:text-[29px] text-[12px] font-[600]">
+          <label className="mh:text-[29px] text-[12px]">
             Patient Id
           </label>
           <input
           disabled
             value={newData.patientId}
-              name="patientId" type="text" placeholder="Type your Name"
+              name="patientId" type="text" placeholder="Type your Id"
             className="mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black "
           />
-           {errors.patientName && <span className="text-red-500 text-3xl font-bold">{errors.patientName}</span>}
+           {errors.patientName && <span className="text-red-500 text-sm font-bold">{errors.patientName}</span>}
         </div>
-        <div className="flex flex-col mh:gap-1 mh:py-5">
-          <label className="mh:text-[29px] text-[12px] font-[600]">
+        <div className="flex flex-col mh:gap-1 mh:py-5 mt-1">
+          <label className="mh:text-[29px] text-[12px]">
             Patient Name
           </label>
           <input
@@ -182,10 +204,10 @@ const Edit = () => {
             onChange={handleChange}  name="patientName" type="text" placeholder="Type your Name"
             className="mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black "
           />
-           {errors.patientName && <span className="text-red-500 text-3xl font-bold">{errors.patientName}</span>}
+           {errors.patientName && <span className="text-red-500 text-sm font-bold">{errors.patientName}</span>}
         </div>
         <div className="flex flex-col mh:gap-1 mt-1.5">
-          <label className="mh:text-[29px] text-[12px] mh:font-[600]">
+          <label className="mh:text-[29px] text-[12px]">
             Patient Phone Number
           </label>
           <input
@@ -228,7 +250,7 @@ const Edit = () => {
                 Prefer not to say
               </option>
             </select>
-            {errors.gender && <span className="text-red-500 text-3xl font-bold">{errors.gender}</span>}
+            {errors.gender && <span className="text-red-500 text-sm font-bold">{errors.gender}</span>}
           </div>
 
           {/* Date of Birth Input */}
@@ -240,8 +262,8 @@ const Edit = () => {
               Date of Birth
             </label>
             <input name="dob" value={formData.dob}
-              onChange={handleChange} type="date"  className='mh:px-6 h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
-              {errors.dob && <span className="text-red-500 text-3xl font-bold">{errors.dob}</span>}
+              onChange={handleChange} type="date"  className='mh:px-6 w-full h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
+              {errors.dob && <span className="text-red-500 text-sm font-bold">{errors.dob}</span>}
           </div>
         </div>
         <div className="flex flex-col mh:gap-1 mt-1.5">
@@ -252,8 +274,8 @@ const Edit = () => {
             placeholder="Address"
             value={formData.address}
             onChange={handleChange}
-className='mh:px-8 mh:py-2 mh:text-[42px] mh:mt-2 mh:rounded-[10px] border-[#232323]  mh:border-[2px] focus:outline-none'  />
-{errors.address && <span className="text-red-500 text-3xl font-bold">{errors.address}</span>}
+className='mh:px-8 pl-3 mh:py-2 mh:text-[42px] mh:mt- border mh:rounded-[10px] border-[#232323]  mh:border-[2px] focus:outline-none'  />
+{errors.address && <span className="text-red-500 text-xl font-bold">{errors.address}</span>}
         </div>
       </div>
       <Button  type="submit" className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-8 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">

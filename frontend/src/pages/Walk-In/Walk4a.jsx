@@ -1,6 +1,6 @@
 import Doctor from "../../components/Cards/Doctor";
 import Flow from "../../components/Flow/Flow";
-import React from "react";
+import React, { useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import Header from "../../components/Header/Header";
 import { CiSearch } from "react-icons/ci";
@@ -11,27 +11,39 @@ import PatientRegistrationExistingUsers from "../../components/PatientRegistrati
 import { useLocation, useNavigate } from "react-router-dom";
 import FooterS from "../../components/Footer/FooterS";
 const Walk4a = () => {
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
   const navigate = useNavigate()
   const location = useLocation()
   console.log(location.state)  
   const {doctorid,date,time,patientNumber,category} = location.state
   return (
-    <div className="mh:px-5 bg-hero bg-cover bg-center h-screen">
-      
-      <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+    <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
             <img
-              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
               src="/images/vector.svg"
             />
-            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
-        <div className="px-8" >
+        <div className="" >
           <div className="   ">
         <h1 className="text-[22px] mh:text-[60px] font-dmsans font-semibold text-white">
            {category}

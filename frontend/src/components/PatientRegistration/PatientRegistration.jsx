@@ -194,7 +194,7 @@ const PatientRegistration = (props) => {
             </div>
 
            
-            <div className="flex  flex-col w-1/2 mh:gap-1 ">
+            <div className="flex flex-col w-1/2 mh:gap-1">
               <label
                 htmlFor="dob"
                 className="mh:text-[29px] text-[12px] mh:font-[600]"
@@ -202,8 +202,8 @@ const PatientRegistration = (props) => {
                 Date of Birth
               </label>
               <input name="dob" value={formData.dob}
-                onChange={handleChange} type="date"  className='mh:px-6 h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
-                {errors.dob && <span className="text-red-500 text-sm font-bold">{errors.dob}</span>}
+                onChange={handleChange} type="date"  className='mh:px-6 w-full h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
+                {errors.dob && <span className="text-red-500  text-sm font-bold">{errors.dob}</span>}
             </div>
           </div>
           <div className="flex flex-col mh:gap-1 mt-1.5">
@@ -214,7 +214,7 @@ const PatientRegistration = (props) => {
               placeholder="Address"
               value={formData.address}
               onChange={handleChange}
- className='mh:px-8 border h-[100px] rounded-sm p-2 mh:py-2 mh:text-[42px] mh:mt-2 mh:rounded-[10px] border-[#232323]  mh:border-[2px] focus:outline-none'  />
+ className='mh:px-8 border h-[50px] rounded-sm p-2 mh:py-2 mh:text-[42px] mh:mt-2 mh:rounded-[10px] border-[#232323]  mh:border-[2px] focus:outline-none'  />
  {errors.address && <span className="text-red-500 text-sm font-bold">{errors.address}</span>}
           </div>
         </div>

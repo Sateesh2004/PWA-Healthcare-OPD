@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaRegEdit } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { useLocation } from 'react-router-dom';
@@ -6,6 +6,19 @@ import { useNavigate } from 'react-router-dom';
 import FooterS from '../../components/Footer/FooterS';
 const CheckIn4 = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
   const location = useLocation();
   console.log(location.state);
   const appointment = location.state.appointment;
@@ -16,30 +29,30 @@ const CheckIn4 = () => {
   const monthName = formatDate.toLocaleString('en-US', { month: 'short' }); // Jan
   const dayName = formatDate.toLocaleString('en-US', { weekday: 'short' }); // Jan
   return (
-    <div className="bg-hero bg-cover bg-center h-screen">
-       <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+    <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
             <img
-              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
               src="/images/vector.svg"
             />
-            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
 
-      <div className="text-white font-semibold mt-5 mh:ml-6 text-xl pl-8 mh:pl-14 mh:text-5xl mh:mt-16">
+      <div className="text-white font-semibold mt-5  text-xl  mh:text-5xl mh:mt-16">
         {appointment.patientName}
       </div>
 
-      <div className="text-white font-semibold mt-2 mh:ml-6 text-lg pl-8 mh:pl-14 mh:text-[40px] mh:mt-14">
+      <div className="text-white font-semibold mt-2  text-lg   mh:text-[40px] mh:mt-14">
         Confirm Appointment Details
       </div>
 
-      <div className="bg-white relative rounded-lg mx-8 my-10 flex flex-col px-2 py-2.5 mh:mt-32 mh:mx-20 mh:rounded-2xl mh:px-6 mh:py-7">
+      <div className="bg-white relative rounded-lg  my-10 flex flex-col px-2 py-2.5 mh:mt-32 mh:mx-20 mh:rounded-2xl mh:px-6 mh:py-7">
         <div className="absolute top-3 right-3 text-gray-400 text-lg cursor-pointer mh:top-6 mh:right-6 mh:text-6xl">
           <RxCross2 />
         </div>
@@ -68,10 +81,7 @@ const CheckIn4 = () => {
 
         <div className="flex mt-7 text-sm font-bold mh:text-[36px] mh:mt-[4vh]">
           Appointment Details
-          <button onClick={()=>{navigate('/walkin1')}} className="flex ml-auto px-4 py-1 text-[10px] w-28 h-6 font-semibold text-white bg-customBlue rounded-md border mh:text-[22px] mh:px-6 mh:py-2 justify-center items-center mh:w-56 mh:h-11">
-            Edit
-            <FaRegEdit className="ml-3 text-[14px] mh:text-[26px]" />
-          </button>
+          
         </div>
 
         <div className="mt-2 text-[10px] text-gray-800 mh:text-[26px] mh:mt-3">

@@ -31,6 +31,21 @@ const Screen1 = () => {
 }, []);
 
 
+useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
+
+
   const handleSelection = (index) => {
     setActiveIndex(index);
   };
@@ -41,18 +56,18 @@ const Screen1 = () => {
   };
 
   return (
-    <div className="bg-hero bg-cover bg-center min-h-screen">
-      
-
-      <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+    <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flexhover:cursor-pointer text-white mh:mt-6">
              <FaRegCircleUser className="text-white text-xl sm:text-3xl" />
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
+
+     
 
       {/* Center logo + text */}
       <div className="flex flex-col  justify-center items-center mt-8 sm:mt-12">

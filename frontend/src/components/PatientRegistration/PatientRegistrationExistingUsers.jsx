@@ -103,12 +103,12 @@ const PatientRegistrationExistingUsers = (props) => {
               className="mh:px-6 mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black"
             />
             {errors.patientId && (
-              <span className="text-red-500 text-[32px] font-bold mt-1">
+              <span className="text-red-500 text-sm font-bold mt-1">
                 {errors.patientId}
               </span>
             )}
           </div>
-          <div className="flex justify-end items-end text-[8px] text-gray-800 mt-1 mh:mt-6 mh:text-[23px]">
+          <div className="flex justify-end items-end text-[12px] text-gray-800 mt-1 mh:mt-6 mh:text-[23px]">
             Forgot Patient ID ?
           </div>
         </div>

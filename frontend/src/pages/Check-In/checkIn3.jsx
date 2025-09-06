@@ -43,36 +43,51 @@ const CheckIn3 = () => {
     }
     fetchData()
   },[])
+
+
+  useEffect(() => {
+    const setVh = () => {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    };
+
+    setVh();
+    window.addEventListener("resize", setVh);
+
+    return () => {
+      window.removeEventListener("resize", setVh);
+    };
+  }, []);
   return (
-    <div className="bg-hero bg-cover bg-center h-screen">
-        <div className={"flex   justify-between  pt-4 mh:mx-16"}>
-          <div onClick={() => navigate(-1)} className="flex ml-8 hover:cursor-pointer text-white mh:mt-6">
+    <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
+      <div className={"flex justify-between"}>
+          <div onClick={() => navigate(-1)} className="flex hover:cursor-pointer text-white">
             <img
-              className="w-3 h-4 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
+              className="w-3 h-3 mt-1.5 mr-1 mh:w-6 mh:h-9 mh:mr-3"
               src="/images/vector.svg"
             />
-            <div className="text-lg mh:text-[40px] mh:mt-2"> Back </div>
+            <div className="text-md mh:text-[40px] mh:mt-2"> Back </div>
           </div>
           <img
-            className={"w-[14vh] mr-4 mh:w-[13vh] mh:mt-4"}
+            className={"w-[14vh] mh:w-[13vh]"}
             src="/images/logo.png"
           />
         </div>
 
      
 
-      <div className="ml-8 mt-4 mr-8 mh:ml-20 mh:mr-[5vh] mh:mt-8">
+      <div className="mt-4  mh:mr-[5vh] mh:mt-8">
         <Carousel className="mh:rounded-3xl" />
       </div>
 
-      <div className="text-white font-semibold mt-6 mh:ml-6 text-lg pl-8 mh:pl-14 mh:text-[40px] mh:mt-20 ">
+      <div className="text-white font-semibold mt-6  text-lg mh:text-[40px] mh:mt-20 ">
         Upcoming Appointments
       </div>
-      <div className="text-white -mt-1 text-[17px] pl-8 mh:pl-14  mh:ml-6 mh:mt-1 mh:text-[40px]">
+      <div className="text-white -mt-1 text-[17px]  mh:mt-1 mh:text-[40px]">
         Today
       </div>
 
-      <div className="bg-white  rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
+      <div className="bg-white  rounded-md mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
         <div className="flex  justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
           <div className="flex justify-center items-center bg-customBlue rounded-md w-[80px] h-[80px] mh:w-[180px] mh:h-[180px]  mh:rounded-2xl">
             <div className="flex flex-col justify-center items-center">
@@ -104,13 +119,13 @@ const CheckIn3 = () => {
         </div>
       </div>
 
-      <div className="text-white mh:ml-6 mt-3 text-[17px] pl-8 mh:pl-14 mh:text-[40px] mh:mt-8 mh:mb-4">
+      <div className="text-white mh:ml-6 mt-3 text-[17px]  mh:text-[40px] mh:mt-8 mh:mb-4">
         Next week
       </div>
 
 <div className="overflow-y-auto max-h-[350px]" >
 {appointments.slice(1).map((appointment) => (
-  <div className="bg-white   rounded-md ml-8 mr-7 mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
+  <div className="bg-white   rounded-md mt-2 flex mh:ml-20 mh:mr-24 mh:rounded-2xl">
   <div className="flex  justify-start items-start px-2 pt-1 pb-1.5 mt-1 mh:p-4">
     <div className="flex justify-center items-center bg-customBlue rounded-md w-[80px] h-[80px] mh:w-[180px] mh:h-[180px]  mh:rounded-2xl">
       <div className="flex flex-col justify-center items-center">
@@ -136,7 +151,7 @@ const CheckIn3 = () => {
          {appointment.doctorname}
       </div>
       <div className="mr-2 w-full pr-2 -mb-8 mt-3 mh:w-[34vh] mh:mt-7">
-        <div onClick={() => navigate("/checkIn4",{state:{appointment:appointment}})} className="flex justify-center items-center p-0.5 rounded-sm text-[11px] bg-customBlue text-white mh:text-[22px] mh:h-11 mh:rounded-lg">
+        <div onClick={() => navigate("/checkIn4",{state:{appointment:appointment}})} className="flex   justify-center items-center p-0.5 rounded-sm text-[11px] bg-customBlue text-white  mh:h-11 mh:rounded-lg">
           Appointment Details
         </div>
       </div>
