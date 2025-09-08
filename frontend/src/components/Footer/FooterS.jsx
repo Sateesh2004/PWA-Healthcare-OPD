@@ -18,7 +18,7 @@ const FooterS = (props) => {
       </div>
     
     <div className={"h-[20px] w-[100px]"}>
-      <img className="" src="./assets/images/footer.webp" />
+      <img className="" src="/ensmbl.png" />
     </div>
     </div>
     </div>
