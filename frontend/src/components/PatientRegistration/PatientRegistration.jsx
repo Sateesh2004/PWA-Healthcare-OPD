@@ -66,7 +66,53 @@ const PatientRegistration = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    try {
+    if (props.state.immediate) {
+  // generate current date & time + 20 minutes
+  const now = new Date();
+  now.setMinutes(now.getMinutes() + 20); // add 20 minutes
+
+  const date = now.toISOString().split("T")[0]; // YYYY-MM-DD
+  const time = now.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  const iformData = {
+    ...formData,
+    [e.target.name]: e.target.value,
+    doctorid: 1,
+    time: time,   // now + 20 min
+    date: date,   // now (or future date if crossed midnight)
+  };
+
+  try {
+    const response = await fetch(`${API_URL}/immediate-appointment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(iformData),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      const patientNumber = formData.patientPhone;
+      const category = props.category;
+      navigate("/walkin5", { state: { patientNumber, category } });
+    } else {
+      const result = await response.json();
+      setPopUp(true);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+
+    else{
+
+      try {
       const response = await fetch(`${API_URL}/patient/registration`, {
         method: "POST",
         headers: {
@@ -90,6 +136,9 @@ const PatientRegistration = (props) => {
     } catch (error) {
       console.error("Error:", error);
     }
+
+    }
+    
 
   };
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL; 
 const Login = () => {
      const navigate = useNavigate();
   const [doctorId, setDoctorId] = useState("");
@@ -10,7 +11,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("https://pwa-healthcare-opd-12.onrender.com/doctors/login", {
+      const res = await fetch(`${API_URL}/doctors/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

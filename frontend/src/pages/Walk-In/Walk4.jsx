@@ -12,6 +12,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import FooterS from "../../components/Footer/FooterS";
 const Walk4 = () => {
+
   useEffect(() => {
       const setVh = () => {
         const vh = window.innerHeight * 0.01;
@@ -57,7 +58,7 @@ const Walk4 = () => {
           </div>
         </div>
       <div className="mt-2">
-        <PatientRegistration date={date} doctorid={doctorid} time={time} category= {category} />
+        <PatientRegistration date={date} doctorid={doctorid} time={time} category= {category} state={location.state} />
       </div>
       </div>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-
+const API_URL = import.meta.env.VITE_API_URL; 
 const HomePage = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `https://pwa-healthcare-opd-12.onrender.com/doctors/${doctor.id}/appointments`
+          `${API_URL}/doctors/${doctor.id}/appointments`
         );
         const result = await response.json();
         setAppointments(result.appointments || []);

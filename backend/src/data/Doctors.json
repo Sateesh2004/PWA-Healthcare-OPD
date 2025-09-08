@@ -4,7 +4,7 @@
       "doctors": [
         {
           "id": "1",
-          "password":"123456",
+          "password":"Newkapass1!",
           "name": "Prashant Kumar",
           "openingtime": "4:00pm",
           "closingtime": "10:00pm",
@@ -12,11 +12,12 @@
           "waitingpatients": 4,
           "availabledateslots": [
             {
-              "date": "2025-09-10",
+              "date": "2025-09-08",
               "timeslots": [
-                "4:00pm",
-                "4:30pm",
-                "5:00pm"
+                
+                "5:00pm",
+                "6:00pm",
+                "7:00pm"
               ]
             }
           ]

@@ -1,5 +1,5 @@
 import doctors from '../data/Doctors.json' with { type: 'json' };
-
+import Appointment from "../models/Appointment.js";
 import appointments from '../models/Appointment.json' with { type: 'json' };
 export const getDoctors = async (req, res) => {
    
@@ -53,23 +53,25 @@ export const logInDoctor = async (req, res) => {
 };
 
 
+
+
 export const getDoctorAppointments = async (req, res) => {
   const { id } = req.params;
   console.log("Fetching appointments for doctor ID:", id);
 
   try {
-    // Get today's date in UTC (YYYY-MM-DD)
-    const today = new Date().toISOString().split("T")[0];
+    // Get today's date in local timezone
+    const now = new Date();
+    const todayStart = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
 
-    const doctorAppointments = appointments.filter((appt) => {
-      if (!appt.created_at) return false; // skip if missing
-
-      const parsedDate = new Date(appt.created_at);
-      if (isNaN(parsedDate)) return false; // skip if invalid
-
-      const apptDate = parsedDate.toISOString().split("T")[0];
-      return appt.doctorid === id && apptDate === today;
+    // Fetch appointments for this doctor created today
+    const doctorAppointments = await Appointment.find({
+      doctorid: id,
+      created_at: { $gte: todayStart.toISOString(), $lt: todayEnd.toISOString() },
     });
+
+    console.log("Appointments fetched:", doctorAppointments.length);
 
     return res.status(200).json({
       message: "Appointments fetched successfully",
@@ -77,9 +79,10 @@ export const getDoctorAppointments = async (req, res) => {
     });
   } catch (error) {
     console.error("Error fetching appointments:", error);
-    return res.status(500).json({ message: "Server error" });
+    return res.status(500).json({ message: "Server error", error: error.message });
   }
 };
+
 
 
   

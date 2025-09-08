@@ -6,6 +6,7 @@ import Footer from "../../components/Footer/Footer";
 import { useNavigate } from "react-router-dom";
 import DoctorCategories from "../../components/Doctors/DoctorCategories";
 import FooterS from "../../components/Footer/FooterS";
+
 const Walk1 = () => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -22,7 +23,7 @@ const Walk1 = () => {
     };
   }, []);
 
-  
+  const state = {immediate:"true"}
 
 
 
@@ -58,7 +59,8 @@ const Walk1 = () => {
             </p>
           </div>
           <div>
-            <Button className="bg-gradient-to-r w-full mh:mt-5 from-[#084B83] mh:h-[105px] font-[700] mh:p-5 mh:text-[30.02px] mh:rounded-[12px] to-[#16CDE1]">
+            <Button onClick={() => navigate("/walkin4", { state })}
+ className="bg-gradient-to-r w-full mh:mt-5 from-[#084B83] mh:h-[105px] font-[700] mh:p-5 mh:text-[30.02px] mh:rounded-[12px] to-[#16CDE1]">
               Immediate consultation
             </Button>
           </div>
