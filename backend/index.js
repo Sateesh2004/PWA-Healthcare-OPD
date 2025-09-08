@@ -5,7 +5,7 @@ import cors from 'cors';
 import patientRoutes from './src/routes/patientRoutes.js';
 import appointmentRoutes from './src/routes/appointmentRoutes.js';
 import connectDB from './src/config/db.js';
-import Appointment from "./src/models/Apppointment.js"; // your schema file
+import Appointment from "./src/models/Appointment.js"; // your schema file
 
 const app = express();
 app.use(express.json());
