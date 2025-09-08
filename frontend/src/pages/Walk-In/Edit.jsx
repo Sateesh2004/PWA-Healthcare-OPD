@@ -179,7 +179,7 @@ const Edit = () => {
           Patient Registration
         </h1>
         <p className="mh:text-[30px] text-[11.5px] mh:mt-5 mt-1.5 font-[400]  ">
-          Enter Your Patient Name And Other Details to register
+          Enter your patient name and other details to register
         </p>
       </div>
       <div className="mh:mt-12 mt-5">
@@ -261,7 +261,7 @@ const Edit = () => {
             >
               Date of Birth
             </label>
-            <input name="dob" value={formData.dob}
+            <input     max={new Date().toISOString().split("T")[0]}    name="dob" value={formData.dob}
               onChange={handleChange} type="date"  className='mh:px-6 w-full h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
               {errors.dob && <span className="text-red-500 text-sm font-bold">{errors.dob}</span>}
           </div>

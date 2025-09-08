@@ -120,7 +120,7 @@ const Walk8 = () => {
             </div>
           </div>
           <div className="font-dmsans text-center text-[14px] font-semibold mt-2 mh:text-[30px] mh:mt-4 mh:mb-3">
-            Ammount to PAY: 499
+            Ammount to pay: ₹499
           </div>
           <div className="flex justify-center">
             <img src="/images/QR Code.svg" className="h-[34vh] mt-2" />

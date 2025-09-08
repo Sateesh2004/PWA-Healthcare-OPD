@@ -12,15 +12,20 @@ const Screen1 = () => {
   useEffect(() => {
   const fetchData = async () => {
     try {
-       const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/languages", {
-        method: "GET",
-      });
+       
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const data = await response.json();
+      const data = [
+    {
+        "language": "English"
+    },
+    {
+        "language": "ಕನ್ನಡ"
+    },
+    {
+        "language": "हिंदी"
+    }
+]
+      console.log(data)
       setLanguages(data);
     } catch (error) {
       console.error("Error fetching languages:", error.message);

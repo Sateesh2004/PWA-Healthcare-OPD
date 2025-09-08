@@ -131,7 +131,7 @@ const PatientRegistration = (props) => {
             Patient Registration
           </h1>
           <p className="mh:text-[30px] text-[11.5px] mh:mt-5 mt-1.5 font-[400]  ">
-            Enter Your Patient Name And Other Details to register
+            Enter your patient name and other details to register
           </p>
         </div>
         <div className="mh:mt-12 mt-5">
@@ -201,7 +201,7 @@ const PatientRegistration = (props) => {
               >
                 Date of Birth
               </label>
-              <input name="dob" value={formData.dob}
+              <input name="dob"     max={new Date().toISOString().split("T")[0]}    value={formData.dob}
                 onChange={handleChange} type="date"  className='mh:px-6 w-full h-[31px] mh:py-4 mh:text-[30px] text-[12px] px-2 py-1.5 rounded-sm mt-1 mh:rounded-[10px] border border-black '  />
                 {errors.dob && <span className="text-red-500  text-sm font-bold">{errors.dob}</span>}
             </div>
@@ -219,7 +219,7 @@ const PatientRegistration = (props) => {
           </div>
         </div>
         <Button  type="submit" className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-8 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
-          Confirm Patient info
+          Register
         </Button>
       </form>
       <div className="mh:px-10 px-6 mh:mx-14">

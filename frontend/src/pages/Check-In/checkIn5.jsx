@@ -85,7 +85,7 @@ const CheckIn5 = () => {
       <div className="relative  bg-white font-semibold  mt-3 rounded-lg p-2 pb-4 mh:ml-20 mh:mr-20 mh:rounded-2xl mh:mt-7">
         <div className="flex items-center" >
         <div className="justify-center items-center mh:text-[40px] mh:pl-2">
-          Collect Your Token And Patient card from bellow
+          Collect your token and patient card from below
         </div>
         <div className="w-24 h-16 mr-12 mt-3 ml-8 mh:w-56 mh:h-40 mh:mt-6 mh:pb-4 mh:ml-16 mh:mr-40">
           <img src="/images/receipt.png" />
@@ -105,7 +105,7 @@ const CheckIn5 = () => {
             TOKEN NO : 102
           </div>
           <div className="text-sm mh:text-[36px] mh:py-8 mh:mt-4">
-            Go to center Waiting room 2
+            Go to center waiting room 2
           </div>
         </div>
       </div>

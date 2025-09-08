@@ -49,7 +49,7 @@ const CheckIn4 = () => {
       </div>
 
       <div className="text-white font-semibold mt-2  text-lg   mh:text-[40px] mh:mt-14">
-        Confirm Appointment Details
+        Confirm appointment details
       </div>
 
       <div className="bg-white relative rounded-lg  my-10 flex flex-col px-2 py-2.5 mh:mt-32 mh:mx-20 mh:rounded-2xl mh:px-6 mh:py-7">
@@ -80,7 +80,7 @@ const CheckIn4 = () => {
         </div>
 
         <div className="flex mt-7 text-sm font-bold mh:text-[36px] mh:mt-[4vh]">
-          Appointment Details
+          Appointment details
           
         </div>
 
@@ -113,10 +113,10 @@ const CheckIn4 = () => {
 
         <div className="mt-4 mh:mt-6">
           <p className="font-bold text-sm text-gray-800 mh:text-[30px]">
-            Payment Status: <span className="text-customGreen">PAID</span>
+            Payment status: <span className="text-customGreen">PAID</span>
           </p>
           <p className="text-xs text-gray-800 mh:text-[26px] mh:mt-4">
-            <span>PAID:</span> ₹499
+            <span>Paid:</span> ₹499
           </p>
           <p className="text-xs -mt-0.5 text-gray-800 mh:text-[26px] mh:mt-3">
             <span>Pending:</span> ₹0

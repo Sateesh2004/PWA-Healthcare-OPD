@@ -6,7 +6,7 @@ const Flow = (props) => {
   const values = [
     "Select OPD",
     "Select Doctor",
-    "Book appointment",
+    "Book Appointment",
     "Patient Registration",
     "Payment",
   ];

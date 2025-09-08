@@ -63,7 +63,7 @@ const Walk2 = () => {
           />
           <div className="mh:mt-14 mt-4">
             <h1 className="mh:text-[34px] font-dmsans text-[13px] mb-1 font-semibold text-white">
-              Immediate Consultation
+              Immediate consultation
             </h1>
             <button
               className={`mh:mt-5 mh:p-7 p-4 rounded-sm mh:text-[34px] text-[13px] font-semibold text-white mh:rounded-[10px] block w-full bg-[linear-gradient(89.99deg,_#084B83_-63.38%,_#16CDE1_124.88%)] `}

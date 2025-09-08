@@ -231,7 +231,7 @@ async function  onSubmit(values) {
           >
             <div className="font-semibold text-xl mh:text-5xl">Welcome ! </div>
             <div className="text-xs mt-2 mh:text-3xl mh:mt-[30px]">
-              Enter Your Patient ID to confirm
+              Enter your Patient ID to confirm.
             </div>
             
             <FormField
@@ -267,9 +267,9 @@ async function  onSubmit(values) {
 
 
             <div className="text-[10px] mh:text-[24px]6">
-              ENTER OTP SENT ON THE REGISTRED NO.
+             Enter the OTP sent to the registered number.
             </div>
-            <div className="text-sm mh:text-[19px]">resend otp</div>
+            <div className="text-sm mh:text-[19px]">Resend OTP</div>
 
             <div className="grid grid-cols-4 px-16 gap-3 mh:gap-10 mh:px-32 mt-2">
       {Array(4)

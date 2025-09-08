@@ -135,7 +135,7 @@ const Walk5 = () => {
               </p>
             </div>
             <Button onClick={handleNavigate} className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-8 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
-              Confirm Patient Info
+              Confirm patient info
             </Button>
           </div>
         </div>

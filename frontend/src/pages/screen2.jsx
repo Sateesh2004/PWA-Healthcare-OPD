@@ -71,7 +71,7 @@ const Screen2 = () => {
           <p> Walk-in</p>
          
           <span className={"text-xs  font-normal mh:text-2xl mh:mt-5"}>
-            I Don't have an Appointment
+            I don't have an Appointment
           </span>
         </div>
           

@@ -96,7 +96,7 @@ const Walk6 = () => {
         </div>
 
       <div className="text-white   font-dmsans text-[18px]  mt-6 font-medium mh:text-[40px]  mh:mt-16">
-        Confirm Appointment Details
+        Confirm appointment details
       </div>
       <div className=" mh:px-0">
         <div className="bg-white relative rounded-lg mt-3 flex flex-col px-2 py-2.5 mh:mt-6 mh:mx-16 mh:rounded-2xl mh:px-5 mh:py-7">
@@ -129,7 +129,7 @@ const Walk6 = () => {
           </div>
 
           <div className="flex mt-7 text-sm font-bold mh:text-[36px] mh:mt-[3.5vh] mh:mb-6 font-dmsans">
-            Appointment Details
+            Appointment details
           </div>
 
           <div className="mt-2  text-[10px] text-gray-800 mh:text-[28px] mh:mt-3 font-dmsans">
@@ -170,10 +170,10 @@ const Walk6 = () => {
 
           <div className="mt-4 mh:mt-8 font-dmsans">
             <div className="font-bold text-sm text-gray-800 mh:text-[36px]">
-              Payment Status: <span className="text-customRed">{appointment.paymentstatus}</span>
+              Payment status: <span className="text-customRed">{appointment.paymentstatus}</span>
             </div>
             <p className="text-xs text-gray-800 mh:text-[28px] mh:mt-4">
-              <span>PAID:</span> ₹0
+              <span>Paid:</span> ₹0
             </p>
             <p className="text-xs -mt-0.5 text-gray-800 mh:text-[28px] mh:mt-3">
               Pending <span className="text-customRed">₹499</span>

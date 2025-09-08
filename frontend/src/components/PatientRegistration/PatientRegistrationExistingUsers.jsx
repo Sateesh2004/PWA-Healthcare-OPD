@@ -86,7 +86,7 @@ const PatientRegistrationExistingUsers = (props) => {
             Patient Registration
           </h1>
           <p className="mh:text-[30px] text-[11.5px] mh:mt-5 mt-1.5 font-[400]">
-            Enter Your Patient ID to confirm
+            Enter your Patient ID to confirm
           </p>
         </div>
         <div className="mh:mt-12 mt-5">

@@ -100,10 +100,10 @@ const Walk9 = () => {
             </div>
           </div>
           <div className="justify-center font-dmsans text-[22px] mt-3 font-semibold flex mh:text-[48px] mh:mt-5">
-            Payment Complete
+            Payment complete
           </div>
           <div className="font-dmsans text-center text-[14px] font-semibold mh:text-[30px] mh:mt-2 mh:mb-3">
-            Ammount PAID: 499
+            Amount paid: ₹499
           </div>
           <div className="flex justify-center">
             <img

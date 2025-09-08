@@ -59,10 +59,10 @@ const Walk1 = () => {
           </div>
           <div>
             <Button className="bg-gradient-to-r w-full mh:mt-5 from-[#084B83] mh:h-[105px] font-[700] mh:p-5 mh:text-[30.02px] mh:rounded-[12px] to-[#16CDE1]">
-              Immediate Consultation
+              Immediate consultation
             </Button>
           </div>
-          <div className="text-white mh:mt-6 mh:text-[40px] mh:font=[700] py-1.5">
+          <div className="text-white mac:mt-4 mh:mt-6 mh:text-[40px] mh:font=[700] py-1.5">
             <h1>Select the type of consultation</h1>
           </div>
          

@@ -64,6 +64,9 @@ module.exports = {
   		screens: {
   			mh: {
   				raw: '(min-height: 1920px)'
+  			},
+  			mac: {
+  				raw: '(min-height: 780px)'
   			}
   		},
   		fontFamily: {

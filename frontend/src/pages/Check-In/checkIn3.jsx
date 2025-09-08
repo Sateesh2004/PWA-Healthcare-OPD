@@ -81,7 +81,7 @@ const CheckIn3 = () => {
       </div>
 
       <div className="text-white font-semibold mt-6  text-lg mh:text-[40px] mh:mt-20 ">
-        Upcoming Appointments
+        Upcoming appointments
       </div>
       <div className="text-white -mt-1 text-[17px]  mh:mt-1 mh:text-[40px]">
         Today

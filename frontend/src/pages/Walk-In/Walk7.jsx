@@ -61,7 +61,7 @@ const Walk7 = () => {
             <div className="mh:text-[52px] text-[18px] text-white">
               <h1>Pay using UPI</h1>
               <p className="mh:text-[25.6px] text-[10px] mt-0.5">
-                I have an Appointment
+                I have an appointment
               </p>
             </div>
             <div>
@@ -76,7 +76,7 @@ const Walk7 = () => {
             <div onClick={()=>{navigate('/checkin5',{state:{appointment,category}});}} className="mh:text-[52px] text-[18px] text-white">
             <h1>Pay in Cash (At Counter)</h1>
               <p className="mh:text-[25.6px] text-[10px] mt-0.5">
-              I Dont't have an Appointment
+              I dont't have an appointment
               </p>
             </div>
             <div>

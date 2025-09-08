@@ -59,7 +59,7 @@ const Walk3 = () => {
         </div>
         <div className="mh:mb-3 mh:mr-4 mt-5 mh:mx-16">
           <h1 className=" text-white text-[14px] font-semibold mh:text-[36px] ">
-            Select Doctor
+            Select doctor
           </h1>
         </div>
       

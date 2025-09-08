@@ -18,11 +18,12 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "fs": "^0.0.1-security",
+    "mongoose": "^8.18.0",
     "node-fetch": "^3.3.2",
+    "nodemon": "^3.1.10",
     "pg": "^8.13.1",
     "postgres": "^3.4.5",
-    "uuid": "^11.0.5",
-    "nodemon": "^3.1.10"
+    "uuid": "^11.0.5"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
