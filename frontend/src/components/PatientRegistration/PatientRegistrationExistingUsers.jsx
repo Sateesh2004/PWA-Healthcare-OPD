@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {X} from 'lucide-react'
 import { useNavigate } from "react-router-dom";
+const API_URL = import.meta.env.VITE_API_URL; 
 const PatientRegistrationExistingUsers = (props) => {
   const navigate = useNavigate();
   const [popUp,setPopUp]=useState(false)
@@ -37,7 +38,7 @@ const PatientRegistrationExistingUsers = (props) => {
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form Data Submitted:", formData);
     }
-    const response =await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/registration", {
+    const response =await fetch(`${API_URL}/patient/registration`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

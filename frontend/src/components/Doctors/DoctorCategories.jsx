@@ -3,14 +3,14 @@ import { useEffect,useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { Button } from '../ui/button'
 import category from '../../assets/images/doctors_category.svg'
-
+const API_URL = import.meta.env.VITE_API_URL; 
 const DoctorCategories = () => {
   const [doctorsData, setDoctorsData] = useState([]);
     const navigate = useNavigate();
     useEffect(()=>{
 
         const fetchData = async ()=>{
-            const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/doctors");
+            const response = await fetch(`${API_URL}/doctors`);
             const data = await response.json();
             console.log(data)
             setDoctorsData(data);

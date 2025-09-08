@@ -4,6 +4,7 @@ import Carousel from "../../components/Carousel/carousel";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import FooterS from "../../components/Footer/FooterS";
+const API_URL = import.meta.env.VITE_API_URL; 
 // import { useNavigate } from "react-router-dom";
 const CheckIn3 = () => {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ const CheckIn3 = () => {
 
   useEffect(() => {
     const fetchData =async()=>{
-      const response =await  fetch(`https://pwa-healthcare-opd-12.onrender.com/appointment/appointments/${id}`)
+      const response =await  fetch(`${API_URL}/appointment/appointments/${id}`)
       const data = await response.json()
       setAppointments(data)
       console.log(data)

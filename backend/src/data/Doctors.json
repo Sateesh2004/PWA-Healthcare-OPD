@@ -12,27 +12,11 @@
           "waitingpatients": 4,
           "availabledateslots": [
             {
-              "date": "2025-09-04",
+              "date": "2025-09-10",
               "timeslots": [
                 "4:00pm",
                 "4:30pm",
                 "5:00pm"
-              ]
-            },
-            {
-              "date": "2025-09-05",
-              "timeslots": [
-                "4:00pm",
-                "4:30pm",
-                "5:00pm"
-              ]
-            },
-            {
-              "date": "2025-09-06",
-              "timeslots": [
-                "5:00pm",
-                "5:30pm",
-                "6:00pm"
               ]
             }
           ]
@@ -55,7 +39,7 @@
           "waitingpatients": 5,
           "availabledateslots": [
             {
-              "date": "2025-09-05",
+              "date": "2025-09-10",
               "timeslots": [
                 "4:00pm",
                 "4:30pm",
@@ -63,7 +47,7 @@
               ]
             },
             {
-              "date": "2025-09-06",
+              "date": "2025-09-11",
               "timeslots": [
                 "5:00pm",
                 "5:30pm",
@@ -88,7 +72,7 @@
           "waitingpatients": 5,
           "availabledateslots": [
             {
-              "date": "2025-09-05",
+              "date": "2025-09-10",
               "timeslots": [
                 "4:00pm",
                 "4:30pm",
@@ -96,7 +80,7 @@
               ]
             },
             {
-              "date": "2025-09-06",
+              "date": "2025-09-11",
               "timeslots": [
                 "5:00pm",
                 "5:30pm",
@@ -115,7 +99,7 @@
           "waitingpatients": 5,
           "availabledateslots": [
             {
-              "date": "2025-09-05",
+              "date": "2025-09-10",
               "timeslots": [
                 "4:00pm",
                 "4:30pm",
@@ -123,7 +107,7 @@
               ]
             },
             {
-              "date": "2025-09-06",
+              "date": "2025-09-11",
               "timeslots": [
                 "5:00pm",
                 "5:30pm",
@@ -148,7 +132,7 @@
           "category": "Dentist",
           "availabledateslots": [
             {
-              "date": "2025-09-05",
+              "date": "2025-09-10",
               "timeslots": [
                 "4:00pm",
                 "4:30pm",
@@ -156,7 +140,7 @@
               ]
             },
             {
-              "date": "2025-09-06",
+              "date": "2025-09-11",
               "timeslots": [
                 "5:00pm",
                 "5:30pm",

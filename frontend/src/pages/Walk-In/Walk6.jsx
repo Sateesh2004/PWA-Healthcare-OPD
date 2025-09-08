@@ -16,6 +16,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import FooterS from "../../components/Footer/FooterS";
+const API_URL = import.meta.env.VITE_API_URL; 
 const Walk6 = () => {
   const navigate = useNavigate();
   const handleNavigation = () => {
@@ -39,7 +40,7 @@ const Walk6 = () => {
     const fetchData = async () => {
       const patientId = location.state.patientId
       console.log(patientId)
-      const respponse = await fetch(`https://pwa-healthcare-opd-12.onrender.com/appointment/${patientId}`)
+      const respponse = await fetch(`${API_URL}/appointment/${patientId}`)
       const data = await respponse.json()
       
       setAppointment(data)

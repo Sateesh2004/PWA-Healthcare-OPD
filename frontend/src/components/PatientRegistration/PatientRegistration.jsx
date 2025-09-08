@@ -4,7 +4,7 @@ import { DatePicker } from "../DatePicker/DatePicker";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { X } from 'lucide-react';
-
+const API_URL = import.meta.env.VITE_API_URL; 
 const PatientRegistration = (props) => {
 
 
@@ -67,7 +67,7 @@ const PatientRegistration = (props) => {
     e.preventDefault();
     if (!validateForm()) return;
     try {
-      const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/registration", {
+      const response = await fetch(`${API_URL}/patient/registration`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

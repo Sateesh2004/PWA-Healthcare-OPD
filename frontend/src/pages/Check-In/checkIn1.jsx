@@ -18,10 +18,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { useNavigate } from 'react-router-dom';
 import FooterS from '../../components/Footer/FooterS';
-
+const API_URL = import.meta.env.VITE_API_URL; 
 const formSchema = z.object({
   
-  id: z.string().min(1, "ID is required"), // Add this line
+  id: z.string().min(1, "ID is required"), 
 })
 
 const CheckIn1 = () => {
@@ -117,7 +117,7 @@ const CheckIn1 = () => {
 
 
     
-    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/validateotp",{
+    const response = await fetch(`${API_URL}/patient/validateotp`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
@@ -155,7 +155,7 @@ async function  onSubmit(values) {
     
     return 
   }
-    const response = await fetch("https://pwa-healthcare-opd-12.onrender.com/patient/signin",{
+    const response = await fetch(`${API_URL}/patient/signin`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

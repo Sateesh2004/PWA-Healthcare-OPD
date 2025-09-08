@@ -5,7 +5,7 @@ import cors from 'cors';
 import patientRoutes from './src/routes/patientRoutes.js';
 import appointmentRoutes from './src/routes/appointmentRoutes.js';
 import connectDB from './src/config/db.js';
-
+import Appointment from "./src/models/Apppointment.js"; // your schema file
 
 const app = express();
 app.use(express.json());
@@ -22,5 +22,5 @@ app.use('/patient',patientRoutes)
 app.use('/appointment',appointmentRoutes)
 app.listen(3000, () => {
   connectDB()
-  console.log('Server is running on port http://localhost:3000');
+  console.log('Server is running on port https://pwa-healthcare-opd-12.onrender.com');
 })

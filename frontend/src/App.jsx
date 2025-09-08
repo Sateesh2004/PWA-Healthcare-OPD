@@ -79,7 +79,7 @@ const App = () => {
     ,
     ,
     {
-      path:"/apointment",
+      path:"/appointment",
       element:<WalkIn6/>
     }
     ,

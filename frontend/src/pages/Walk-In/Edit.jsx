@@ -3,7 +3,7 @@ import { useLocation,useNavigate } from 'react-router-dom';
 import { Button } from '../../components/ui/button';
 import Flow from '../../components/Flow/Flow';
 import FooterS from '../../components/Footer/FooterS';
-
+const API_URL = import.meta.env.VITE_API_URL; 
 const Edit = () => {
     const location = useLocation()
     console.log(location.state)
@@ -67,7 +67,7 @@ const Edit = () => {
     e.preventDefault();
     if (!validateForm()) return;
     try{
-        const response = await fetch("https://pwa-healthcare-opd-12.onrender.com//patient/update", {
+        const response = await fetch(`${API_URL}/patient/update`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

@@ -15,7 +15,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import FooterS from "../../components/Footer/FooterS";
 import { FaRegEdit } from "react-icons/fa";
-
+const API_URL = import.meta.env.VITE_API_URL; 
 
 
 
@@ -34,12 +34,12 @@ const Walk5 = () => {
   const handleNavigate=(e)=>{
     e.preventDefault()
     const patientId = patientInfo.patientId
-    navigate('/apointment',{state:{patientId,category}});
+    navigate('/appointment',{state:{patientId,category}});
   }
     useEffect(()=>{
       const fetchData = async () => {
         const patientNumber = location.state.patientNumber;
-        const response = await fetch(`https://pwa-healthcare-opd-12.onrender.com/patient/getpatient/${patientNumber}`);
+        const response = await fetch(`${API_URL}/patient/getpatient/${patientNumber}`);
         const data = await response.json();
         console.log("hid",data)
         setNewData(data)
