@@ -14,11 +14,13 @@ const __dirname = path.dirname(__filename);
 
 
 export const register = async (req, res) => {
+  console.log("came to register")
   try {
     const bodyLength = Object.keys(req.body).length;
 
     // CASE 1: Appointment booking for an existing patient
     if (bodyLength === 4) {
+      console.log("1")
       const { patientId, doctorid, time, date } = req.body;
 
       // find patient in MongoDB
@@ -64,6 +66,7 @@ export const register = async (req, res) => {
 
     // CASE 2: New patient registration + appointment
     else {
+       console.log("2")
       const { patientName, patientPhone, gender, dob, address, doctorid, time, date } = req.body;
 
       // check if patient already exists

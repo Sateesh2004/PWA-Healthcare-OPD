@@ -6,6 +6,14 @@ import { useState } from "react";
 import { X } from 'lucide-react';
 const API_URL = import.meta.env.VITE_API_URL; 
 const PatientRegistration = (props) => {
+  console.log("dfher")
+  console.log(props)
+  var immediate = false;
+  if(props.state.immediate){
+   immediate = true
+   console.log("immediate has become true")
+  }
+ 
 
 
   const category = props.category
@@ -66,7 +74,7 @@ const PatientRegistration = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) return;
-    if (props.state.immediate) {
+    if (immediate) {
   // generate current date & time + 20 minutes
   const now = new Date();
   now.setMinutes(now.getMinutes() + 20); // add 20 minutes
@@ -272,7 +280,7 @@ const PatientRegistration = (props) => {
         </Button>
       </form>
       <div className="mh:px-10 px-6 mh:mx-14">
-        <Button  onClick={()=>{navigate("/walkin4a",{state:{doctorid,date,time,category}})}} className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
+        <Button  onClick={()=>{navigate("/walkin4a",{state:{doctorid,date,time,category,immediate}})}} className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
           Already have an account
         </Button>
       </div>

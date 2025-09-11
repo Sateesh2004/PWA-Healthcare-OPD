@@ -25,9 +25,8 @@ const Walk4a = () => {
     };
   }, []);
   const navigate = useNavigate()
-  const location = useLocation()
-  console.log(location.state)  
-  const {doctorid,date,time,patientNumber,category} = location.state
+  const location = useLocation()  
+  const {doctorid,date,time,patientNumber,category,immediate} = location.state
   return (
     <div className="relative  bg-hero p-3  h-screen bg-cover bg-center" style={{ height: "calc(var(--vh) * 100)" }}>
       <div className={"flex justify-between"}>
@@ -58,7 +57,7 @@ const Walk4a = () => {
         </div>
       </div>
       <div className="mt-28" >
-        <PatientRegistrationExistingUsers doctorid={doctorid} date={date} time={time} patientNumber={patientNumber} category={category} />
+        <PatientRegistrationExistingUsers doctorid={doctorid} date={date} time={time} patientNumber={patientNumber} category={category} immediate={immediate} />
       </div>
         </div>
       

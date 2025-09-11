@@ -6,8 +6,8 @@ const API_URL = import.meta.env.VITE_API_URL;
 const PatientRegistrationExistingUsers = (props) => {
   const navigate = useNavigate();
   const [popUp,setPopUp]=useState(false)
-  const { doctorid, date,time,patientNumber,category } = props;
-   console.log(props)
+  const { doctorid, date,time,patientNumber,category,immediate } = props;
+   console.log("i am immediate",immediate)
   const [formData, setFormData] = useState({ patientId: ''
     ,
     doctorid:'',
@@ -38,6 +38,52 @@ const PatientRegistrationExistingUsers = (props) => {
     if (Object.keys(validationErrors).length === 0) {
       console.log("Form Data Submitted:", formData);
     }
+
+     if (immediate) {
+  // generate current date & time + 20 minutes
+  const now = new Date();
+  now.setMinutes(now.getMinutes() + 20); // add 20 minutes
+
+  const date = now.toISOString().split("T")[0]; // YYYY-MM-DD
+  const time = now.toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+
+  const iformData = {
+    ...formData,
+    doctorid: 1,
+    time: time,   // now + 20 min
+    date: date,   // now (or future date if crossed midnight)
+  };
+
+  try {
+    const response = await fetch(`${API_URL}/immediate-appointment`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(iformData),
+    });
+
+    if (response.ok) {
+      const result = await response.json();
+      const patientNumber = result.patientPhone;
+      const category = props.category;
+      navigate("/walkin5", { state: { patientNumber, category } });
+    } else {
+      const result = await response.json();
+      setPopUp(true);
+    }
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
+else{
+
+
     const response =await fetch(`${API_URL}/patient/registration`, {
       method: "POST",
       headers: {
@@ -57,6 +103,11 @@ const PatientRegistrationExistingUsers = (props) => {
       console.log(result);
     }
   };
+
+}
+
+    
+  
 
   return (
     <div className="mh:mt-20 mt-10">
@@ -118,7 +169,7 @@ const PatientRegistrationExistingUsers = (props) => {
         </Button>
       </form>
       <div className="mh:px-10 px-6">
-        <Button className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
+        <Button onClick={()=>{navigate("/walkin4")}} className="w-full rounded-[3px] mt-4 text-md bg-gradient-to-r from-customBlue from-35% to-customCyan h-9 mh:h-20 mh:text-4xl mh:bg-gradient-to-r mh:from-customBlue mh:from-40% mh:to-customCyan mh:mt-8 mh:mb-3 mh:rounded-lg">
           Don't have an account
         </Button>
       </div>
